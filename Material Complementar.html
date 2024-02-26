@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Material Complementar</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(to right, #ADD8E6, #FFFFFF, #ADD8E6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    margin: 20px auto 0;
+    gap: 20px;
+}
+
+.navbar {
+    background: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.navbar a.home-icon,
+.navbar .search-bar {
+    margin: 0 120px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: calc(25% - 20px);
+    margin-bottom: 20px;
+    padding: 40px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card h2,
+.btn {
+    margin: 10px 0;
+}
+
+.card h2 {
+    min-height: 75px; /* Definindo uma altura mínima para os títulos */
+}
+
+.btn {
+    background: #365858;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background 0.3s ease;
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+footer {
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    position: relative;
+    margin-top: auto;
+}
+
+.fa-home {
+    color: #ffffff;
+}
+
+/* Modal CSS */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: 800px;
+    height: auto;
+    max-height: 80%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px; /* Arredondando um pouco as bordas */
+    text-align: center;
+    position: relative;
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Download Button */
+.download-btn {
+    background: #365858;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background 0.3s ease;
+    margin-top: 20px; /* Adicionado para afastar o botão do título */
+}
+
+.download-btn:hover {
+    background: #0056b3;
+}
+
+</style>
+</head>
+<body>
+<nav class="navbar">
+    <a class="home-icon" href="/"><i class="fas fa-home"></i></a>
+    <div class="search-bar">
+        <input placeholder="Buscar Artigos..." type="text"/>
+        <input type="submit" value="Buscar"/>
+    </div>
+</nav>
+<div class="container">
+    <!-- Example Card -->
+    <div class="card" data-article-text="O livro discute o limite entre a ficção, probabilidades e realizações tecnológicas sob a ótica real da ciência, física, química e biologia. O que é possível, imaginável e realizável." data-article-description="" data-article-pdf="https://drive.google.com/file/d/1rmuFTjG-qq_aFbjG83bnDaxYWWz_iWlt/view?usp=sharing">
+        <h2>Ficção vs Realidade</h2> <!-- Title above the image -->
+        <img alt="Article Image" src="https://i.pinimg.com/564x/2d/58/ec/2d58ec7e1db96b865a93255798faf9c2.jpg"/>
+        <a class="btn" href="#">Visualizar</a> <!-- "Ler" button inside the card -->
+    </div>
+
+    <div class="card" data-article-text="O livro discute as patologias geradas pela tecnologia e sua influência na sociedade atual, seus impactos, características e como podemos minimizar seus efeitos. " data-article-description="" data-article-pdf="https://drive.google.com/file/d/1QYaM7eLm4aeJCZJB2YDArLJMzpKzdwNV/view?usp=sharing">
+        <h2>Patologias Tecnológicas</h2> <!-- Title above the image -->
+        <img alt="Article Image" src="https://i.pinimg.com/564x/f8/ce/4f/f8ce4f16897ac353a9a9c4e5ac00c6d0.jpg"/>
+        <a class="btn" href="#">Visualizar</a> <!-- "Ler" button inside the card -->
+    </div>
+
+    <!-- Repeat for more articles -->
+</div>
+<footer>
+    <p>2024</p>
+</footer>
+
+<!-- Modal HTML -->
+<div class="modal" id="articleModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <h2 id="modalTitle">Article Title</h2>
+        <img alt="Article Image" id="modalImage" src="" style="max-width: 100%; height: auto;"/>
+        <p id="modalText">Article text...</p>
+        <p id="modalDescription">Description...</p> <!-- Adicione a descrição do livro aqui -->
+        <a class="download-btn" href="#" download target="_blank">Download</a> <!-- Download button inside the modal -->
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Preventing default link behavior
+            const card = this.closest('.card');
+            const title = card.querySelector('h2').textContent;
+            const imgSrc = card.querySelector('img').src;
+            const articleText = card.dataset.articleText;
+            const articleDescription = card.dataset.articleDescription; // Adicionado para obter a descrição do livro
+            const articlePdf = card.dataset.articlePdf; // Adicionado para obter o URL do PDF
+            const modal = document.getElementById('articleModal');
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalImage').src = imgSrc;
+            document.getElementById('modalText').textContent = articleText;
+            document.getElementById('modalDescription').textContent = articleDescription; // Adicionando a descrição do livro ao modal
+            document.querySelector('.download-btn').href = articlePdf; // Atualizando o link de download com o URL do PDF correspondente
+            modal.style.display = 'block';
+        });
+    });
+
+    // Close modal functionality
+    const closeModal = () => {
+        document.getElementById('articleModal').style.display = 'none';
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        const modal = document.getElementById('articleModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
+</body>
+</html>

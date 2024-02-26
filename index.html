@@ -43,14 +43,16 @@
 }
 
 .card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: transparent,
+    border-radius: 8px;    
     text-align: center;
-    width: calc(25% - 20px);
-    margin-bottom: 20px;
-    padding: 40px;
+    width: calc(22% - 40px); /* Aumentando a largura do card */
+    height: 380px; /* Diminuindo a altura do card */    
+    padding: 20px; /* Ajustando o preenchimento interno */
     transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card img {
@@ -58,6 +60,8 @@
     height: auto;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    margin-bottom: 20px;
+    padding-top: 0; /* Removendo o preenchimento superior */
 }
 
 .card h2,
@@ -66,7 +70,7 @@
 }
 
 .card h2 {
-    min-height: 75px; /* Definindo uma altura mínima para os títulos */
+    min-height: 65px; /* Definindo uma altura mínima para os títulos */
 }
 
 .btn {
@@ -78,7 +82,7 @@
     transition: background 0.3s ease;
     display: block;
     width: 80%;
-    margin: 0 auto;
+    margin-top: auto; /* Removendo a margem inferior */
 }
 
 .btn:hover {
@@ -89,8 +93,10 @@ footer {
     text-align: center;
     font-weight: bold;
     width: 100%;
-    position: relative;
-    margin-top: auto;
+    position: fixed; /* Alterando para posição fixa */
+    bottom: 0; /* Alinhando na parte inferior */
+    background: #333; /* Adicionando fundo para melhor legibilidade */
+    color: #fff; /* Alterando a cor do texto para melhor legibilidade */
 }
 
 .fa-home {
@@ -151,6 +157,26 @@ footer {
 
 .download-btn:hover {
     background: #0056b3;
+}
+
+/* Estilos para telas menores */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%; /* Reduzindo a largura do container */
+    }
+
+    .card {
+        width: calc(45% - 20px); /* Ajustando a largura do card para ocupar menos espaço */
+        height: auto; /* Permitindo que a altura do card seja ajustada automaticamente */
+        padding: 20px; /* Reduzindo o preenchimento interno do card */
+    }
+}
+
+/* Estilos para telas ainda menores, como smartphones */
+@media screen and (max-width: 480px) {
+    .card {
+        width: calc(90% - 20px); /* Ajustando a largura do card para ocupar quase toda a largura da tela */
+    }
 }
 
 </style>

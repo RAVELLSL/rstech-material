@@ -33,22 +33,26 @@
     color: #fff;
     display: flex;
     justify-content: center;
+    align-items: center; /* Centralizando verticalmente */
     padding: 10px;
     width: 100%;
 }
 
-.navbar a.home-icon,
 .navbar .search-bar {
-    margin: 0 120px;
+    margin: 0 auto; /* Centralizando horizontalmente */
+}
+
+.navbar .search-bar input {
+    margin-right: 10px;
 }
 
 .card {
-    background: transparent,
+    background: transparent;
     border-radius: 8px;    
     text-align: center;
-    width: calc(22% - 40px); /* Aumentando a largura do card */
-    height: 380px; /* Diminuindo a altura do card */    
-    padding: 20px; /* Ajustando o preenchimento interno */
+    width: calc(22% - 40px);
+    height: 380px;
+    padding: 20px;
     transition: transform 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
@@ -61,7 +65,7 @@
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     margin-bottom: 20px;
-    padding-top: 0; /* Removendo o preenchimento superior */
+    padding-top: 0;
 }
 
 .card h2,
@@ -70,7 +74,7 @@
 }
 
 .card h2 {
-    min-height: 65px; /* Definindo uma altura mínima para os títulos */
+    min-height: 65px;
 }
 
 .btn {
@@ -82,7 +86,7 @@
     transition: background 0.3s ease;
     display: block;
     width: 80%;
-    margin-top: auto; /* Removendo a margem inferior */
+    margin-top: auto;
 }
 
 .btn:hover {
@@ -93,14 +97,10 @@ footer {
     text-align: center;
     font-weight: bold;
     width: 100%;
-    position: fixed; /* Alterando para posição fixa */
-    bottom: 0; /* Alinhando na parte inferior */
-    background: #333; /* Adicionando fundo para melhor legibilidade */
-    color: #fff; /* Alterando a cor do texto para melhor legibilidade */
-}
-
-.fa-home {
-    color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    background: #333;
+    color: #fff;
 }
 
 /* Modal CSS */
@@ -124,7 +124,7 @@ footer {
     background-color: #fefefe;
     margin: 0 auto;
     padding: 20px;
-    border-radius: 12px; /* Arredondando um pouco as bordas */
+    border-radius: 12px;
     text-align: center;
     position: relative;
 }
@@ -152,7 +152,7 @@ footer {
     text-decoration: none;
     border-radius: 25px;
     transition: background 0.3s ease;
-    margin-top: 20px; /* Adicionado para afastar o botão do título */
+    margin-top: 20px;
 }
 
 .download-btn:hover {
@@ -162,20 +162,20 @@ footer {
 /* Estilos para telas menores */
 @media screen and (max-width: 768px) {
     .container {
-        width: 90%; /* Reduzindo a largura do container */
+        width: 90%;
     }
 
     .card {
-        width: calc(45% - 20px); /* Ajustando a largura do card para ocupar menos espaço */
-        height: auto; /* Permitindo que a altura do card seja ajustada automaticamente */
-        padding: 20px; /* Reduzindo o preenchimento interno do card */
+        width: calc(45% - 20px);
+        height: auto;
+        padding: 20px;
     }
 }
 
 /* Estilos para telas ainda menores, como smartphones */
 @media screen and (max-width: 480px) {
     .card {
-        width: calc(90% - 20px); /* Ajustando a largura do card para ocupar quase toda a largura da tela */
+        width: calc(90% - 20px);
     }
 }
 
@@ -183,10 +183,9 @@ footer {
 </head>
 <body>
 <nav class="navbar">
-    <a class="home-icon" href="/"><i class="fas fa-home"></i></a>
     <div class="search-bar">
-        <input placeholder="Buscar Artigos..." type="text"/>
-        <input type="submit" value="Buscar"/>
+        <input id="searchInput" placeholder="Buscar Livros..." type="text" onkeypress="searchOnEnter(event)"/>
+        <button onclick="search()">Buscar</button>
     </div>
 </nav>
 <div class="container">
@@ -218,6 +217,25 @@ footer {
         <p id="modalText">Article text...</p>
         <p id="modalDescription">Description...</p> <!-- Adicione a descrição do livro aqui -->
         <a class="download-btn" href="#" download target="_blank">Download</a> <!-- Download button inside the modal -->
+    </div>
+</div>
+
+<!-- Modal para exibir resultados da busca -->
+<div class="modal" id="searchResultsModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeSearchResultsModal()">×</span>
+        <h2>Resultados da Busca</h2>
+        <table class="search-results" id="searchResultsTable">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody id="searchResultsBody">
+            </tbody>
+        </table>
     </div>
 </div>
 
@@ -253,6 +271,51 @@ footer {
             modal.style.display = 'none';
         }
     }
+
+    function search() {
+        const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
+        const cards = document.querySelectorAll('.card');
+        const searchResultsBody = document.getElementById('searchResultsBody');
+
+        // Limpar resultados anteriores
+        searchResultsBody.innerHTML = '';
+
+        // Verificar cada card
+        cards.forEach(card => {
+            const title = card.querySelector('h2').textContent.trim().toLowerCase();
+            const description = card.dataset.articleText.trim();
+            const pdfLink = card.dataset.articlePdf;
+
+            // Se o título ou descrição corresponderem à pesquisa, adicionar ao resultado
+            if (title.includes(searchInput) || description.toLowerCase().includes(searchInput)) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${title}</td>
+                    <td>${description}</td>
+                    <td><a href="#" onclick="openCard('${pdfLink}')">Visualizar</a></td>
+                `;
+                searchResultsBody.appendChild(row);
+            }
+        });
+
+        // Mostrar modal de resultados
+        document.getElementById('searchResultsModal').style.display = 'block';
+    }
+
+    function closeSearchResultsModal() {
+        document.getElementById('searchResultsModal').style.display = 'none';
+    }
+
+    function openCard(pdfLink) {
+        window.open(pdfLink, '_blank');
+    }
+
+    function searchOnEnter(event) {
+        if (event.key === 'Enter') {
+            search();
+        }
+    }
 </script>
+
 </body>
 </html>

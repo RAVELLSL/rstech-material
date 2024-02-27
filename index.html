@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -6,6 +7,7 @@
 <title>Material Complementar</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
 <style>
+  
   body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -51,7 +53,8 @@
     border-radius: 8px;    
     text-align: center;
     width: calc(22% - 40px);
-    height: 380px;
+    height: auto;
+    min-height: 380px; /* Adicionado */
     padding: 20px;
     transition: transform 0.3s ease-in-out;
     display: flex;
@@ -60,8 +63,9 @@
 }
 
 .card img {
-    max-width: 100%;
-    height: auto;
+    width: 200px; /* Definindo uma largura fixa para todas as imagens */
+    height: 350px; /* Definindo uma altura fixa para todas as imagens */
+    object-fit: cover; /* Garantindo que a imagem cubra o contêiner mantendo sua proporção */
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     margin-bottom: 20px;
@@ -190,6 +194,13 @@ footer {
 </nav>
 <div class="container">
     <!-- Example Card -->
+
+    <div class="card" data-article-text="Um tópico de discussão sobre a atual produção, inovação e estágios de desenvolvimento das baterias para dispositivos móveis. Os cuidados com carregadores portáteis, carregadores turbo e muito mais!" data-article-description="" data-article-pdf="https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing">
+        <h2>Inovação nas Baterias</h2> <!-- Title above the image -->
+        <img alt="Article Image" src="https://i.pinimg.com/736x/7b/13/44/7b13443c1561b3a26d0662988bfc82ce.jpg"/>
+        <a class="btn" href="#">Visualizar</a> <!-- "Ler" button inside the card -->
+    </div>
+
     <div class="card" data-article-text="O livro discute o limite entre a ficção, probabilidades e realizações tecnológicas sob a ótica real da ciência, física, química e biologia. O que é possível, imaginável e realizável." data-article-description="" data-article-pdf="https://drive.google.com/file/d/1rmuFTjG-qq_aFbjG83bnDaxYWWz_iWlt/view?usp=sharing">
         <h2>Ficção vs Realidade</h2> <!-- Title above the image -->
         <img alt="Article Image" src="https://i.pinimg.com/564x/2d/58/ec/2d58ec7e1db96b865a93255798faf9c2.jpg"/>

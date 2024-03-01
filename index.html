@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -183,6 +182,13 @@ footer {
     }
 }
 
+/* Estilo para imagem dentro do modal */
+#modalImage {
+    max-width: 30%; /* Definindo largura máxima da imagem */
+    height: auto; /* Mantendo altura proporcional */
+    margin: 0 auto; /* Centralizando horizontalmente */
+}
+
 </style>
 </head>
 <body>
@@ -195,19 +201,19 @@ footer {
 <div class="container">
     <!-- Example Card -->
 
-    <div class="card" data-article-text="Um tópico de discussão sobre a atual produção, inovação e estágios de desenvolvimento das baterias para dispositivos móveis. Os cuidados com carregadores portáteis, carregadores turbo e muito mais!" data-article-description="" data-article-pdf="https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing">
+    <div class="card" data-article-text="Inovação e Cuidados com as Baterias é um tópico de discussão sobre a atual produção e estágios de desenvolvimento das baterias para dispositivos móveis. Os cuidados com carregadores portáteis, carregadores turbo e muito mais!" data-article-description="" data-article-pdf="https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing">
         <h2>Inovação nas Baterias</h2> <!-- Title above the image -->
         <img alt="Article Image" src="https://i.pinimg.com/736x/7b/13/44/7b13443c1561b3a26d0662988bfc82ce.jpg"/>
         <a class="btn" href="#">Visualizar</a> <!-- "Ler" button inside the card -->
     </div>
 
-    <div class="card" data-article-text="O livro discute o limite entre a ficção, probabilidades e realizações tecnológicas sob a ótica real da ciência, física, química e biologia. O que é possível, imaginável e realizável." data-article-description="" data-article-pdf="https://drive.google.com/file/d/1rmuFTjG-qq_aFbjG83bnDaxYWWz_iWlt/view?usp=sharing">
+    <div class="card" data-article-text="Ficção vs Realidade discute o limite entre a ficção, probabilidades e realizações tecnológicas sob a ótica real da ciência, física, química e biologia. O que é possível, imaginável e realizável." data-article-description="" data-article-pdf="https://drive.google.com/file/d/1rmuFTjG-qq_aFbjG83bnDaxYWWz_iWlt/view?usp=sharing">
         <h2>Ficção vs Realidade</h2> <!-- Title above the image -->
         <img alt="Article Image" src="https://i.pinimg.com/564x/2d/58/ec/2d58ec7e1db96b865a93255798faf9c2.jpg"/>
         <a class="btn" href="#">Visualizar</a> <!-- "Ler" button inside the card -->
     </div>
 
-    <div class="card" data-article-text="O livro discute as patologias geradas pela tecnologia e sua influência na sociedade atual, seus impactos, características e como podemos minimizar seus efeitos. " data-article-description="" data-article-pdf="https://drive.google.com/file/d/1QYaM7eLm4aeJCZJB2YDArLJMzpKzdwNV/view?usp=sharing">
+    <div class="card" data-article-text="Patologias Tecnológicas discute as doenças associadas com tecnologia e sua influência na sociedade atual, seus impactos, características e como podemos minimizar seus efeitos. " data-article-description="" data-article-pdf="https://drive.google.com/file/d/1QYaM7eLm4aeJCZJB2YDArLJMzpKzdwNV/view?usp=sharing">
         <h2>Patologias Tecnológicas</h2> <!-- Title above the image -->
         <img alt="Article Image" src="https://i.pinimg.com/564x/f8/ce/4f/f8ce4f16897ac353a9a9c4e5ac00c6d0.jpg"/>
         <a class="btn" href="#">Visualizar</a> <!-- "Ler" button inside the card -->
@@ -224,7 +230,7 @@ footer {
     <div class="modal-content">
         <span class="close" onclick="closeModal()">×</span>
         <h2 id="modalTitle">Article Title</h2>
-        <img alt="Article Image" id="modalImage" src="" style="max-width: 100%; height: auto;"/>
+        <img alt="Article Image" id="modalImage" src=""/>
         <p id="modalText">Article text...</p>
         <p id="modalDescription">Description...</p> <!-- Adicione a descrição do livro aqui -->
         <a class="download-btn" href="#" download target="_blank">Download</a> <!-- Download button inside the modal -->

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -8,7 +6,8 @@
 <title>Material Complementar</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
 <style>
-  body {
+  /* Estilos gerais */
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -183,6 +182,13 @@ footer {
     .modal-content img {
         max-width: 90%;
         height: auto;
+    }
+
+    /* Ajuste para o título ser exibido em uma única linha */
+    .card h2 {
+        white-space: nowrap; /* Evita quebra de linha */
+        overflow: hidden; /* Esconde o conteúdo que ultrapassa a largura */
+        text-overflow: ellipsis; /* Adiciona reticências caso o conteúdo seja cortado */
     }
 }
 

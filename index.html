@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -174,6 +176,10 @@ footer {
         padding: 20px;
     }
 
+    .modal {
+        width: 90%; /* Ajustando a largura do modal para telas menores */
+    }
+
     .modal-content img {
         max-width: 90%;
         height: auto;
@@ -182,9 +188,12 @@ footer {
 
 /* Estilos para telas maiores */
 @media screen and (min-width: 769px) {
+    .modal {
+        width: 60%; /* Mantendo a largura do modal para telas maiores */
+    }
     .modal-content img {
-        max-width: 100%;
-        height: auto;
+        max-width: 100%; /* Mantendo a largura da imagem dentro do modal para telas maiores */
+        height: auto; /* Mantendo a altura proporcional */
     }
 }
 

@@ -6,108 +6,80 @@
 <title>Material Complementar</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
 <style>
-  /* Estilos gerais */
-body {
-    font-family: Arial, sans-serif;
+/* Estilos gerais */
+body, button, input, select, textarea {
+    font-family: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    color: #333;
-    background: linear-gradient(to right, #ADD8E6, #FFFFFF, #ADD8E6);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
+    background-color: #f9f9f9;
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 80%;
-    margin: 20px auto 40px; /* Adicionando margem na parte inferior */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
 
-.navbar {
-    background: #333;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centralizando verticalmente */
-    padding: 10px;
+.item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center; /* Centralizar título */
+}
+
+.item img {
     width: 100%;
+    height: 245px; /* Aumenta a altura da imagem */
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    object-position: top; /* Exibir a partir do topo */
 }
 
-.navbar .search-bar {
-    margin: 0 auto; /* Centralizando horizontalmente */
-}
-
-.navbar .search-bar input {
-    margin-right: 10px;
-}
-
-.card {
-    background: transparent;
-    border-radius: 8px;    
-    text-align: center;
-    width: calc(22% - 40px);
-    height: auto;
-    min-height: 380px; /* Adicionado */
+.item-content {
     padding: 20px;
-    transition: transform 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-.card img {
-    width: 200px; /* Definindo uma largura fixa para todas as imagens */
-    height: 350px; /* Definindo uma altura fixa para todas as imagens */
-    object-fit: cover; /* Garantindo que a imagem cubra o contêiner mantendo sua proporção */
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    margin-bottom: 20px;
-    padding-top: 0;
-}
-
-.card h2,
-.btn {
-    margin: 10px 0;
-}
-
-.card h2 {
-    min-height: 65px;
+.item h2 {
+    margin: 0 auto; /* Centralizar título */
+    font-size: 1.2rem;
+    color: #333;
 }
 
 .btn {
-    background: #365858;
+    background: linear-gradient(to right, #444, #888);
     color: #fff;
-    padding: 10px 20px;
+    padding: 6px 10px; /* Reduzir ainda mais o padding */
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 15px; /* Ajustar o raio do botão */
     transition: background 0.3s ease;
     display: block;
-    width: 80%;
-    margin-top: auto;
+    width: 30%; /* Ajustar a largura do botão */
+    text-align: center;    
+    margin: 8px auto; /* Centralizar e adicionar margem */
 }
 
 .btn:hover {
-    background: #0056b3;
+    background: linear-gradient(to right, #333, #777);
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+.search-bar,
+.navbar {
+    text-align: center; /* Centralizar mecanismo de busca */
+}
+
+.footer {
     text-align: center;
     font-weight: bold;
-    background: #333;
-    color: #fff;
+    background-color: transparent;
+    color: #070707;
+    padding: 10px 0;
 }
 
-/* Modal CSS */
+/* Estilos do Modal */
 .modal {
     display: none;
     position: fixed;
@@ -115,243 +87,353 @@ footer {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
-    max-width: 800px;
-    height: auto;
+    width: 95%;
+    max-width: auto;
     max-height: 80%;
-    overflow-y: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro */
 }
 
-/* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    margin: 0 auto;
-    padding: 20px;
+    background-color: #fff;
     border-radius: 12px;
+    padding: 20px;
     text-align: center;
+    box-sizing: border-box;
     position: relative;
 }
 
-/* Close Button */
 .close {
     color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 24px;
+    position:absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #000;
     text-decoration: none;
-    cursor: pointer;
 }
 
-/* Download Button */
+/* Estilos para as imagens nos modais */
+.modal-content img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+/* Estilos para o modal de busca */
+.search-modal-content {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-modal-content input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-modal-content .search-btn-modal,
 .download-btn {
-    background: #365858;
+    background: linear-gradient(to right, #444, #888);
+    color: #fff;
+    padding: 6px 10px; /* Reduzir ainda mais o padding */
+    width: 30%; /* Ajustar a largura do botão */
+    text-decoration: none;
+    border-radius: 15px; /* Ajustar o raio do botão */
+    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-block; /* Alterar para inline-block */
+    text-align: center; /* Centralizar texto */
+    margin: 8px auto; /* Centralizar e adicionar margem */
+}
+
+.search-modal-content .search-btn-modal:hover,
+.download-btn:hover {
+    background: linear-gradient(to right, #333, #777);
+}
+
+/* Estilos para a tabela de resultados */
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.result-table th, .result-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.result-table th {
+    background-color: #f2f2f2;
+}
+
+.result-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.result-table tr:hover {
+    background-color: #ddd;
+}
+
+.result-table a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.result-table a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para o botão de busca */
+.search-btn-home {
+    position: absolute;
+    top: 20px;
+    right: 410px;
+    background: linear-gradient(to right, #444, #888);
     color: #fff;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 25px;
     transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.search-btn-home:hover {
+    background: linear-gradient(to right, #333, #777);
+}
+
+/* Estilos para o cabeçalho */
+.header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
     margin-top: 20px;
 }
 
-.download-btn:hover {
-    background: #0056b3;
+@media only screen and (max-width: 768px) {
+  body, button, input, select, textarea, .header, .container, .item, .search-modal-content, .footer {
+    font-family: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+  }
+
+  .header {
+    margin-top: 20px;
+  }
+  
+  .search-btn-home {
+    right: 50%;
+    margin-top: 40px;
+    transform: translateX(50%);
+  }
+  
+  .container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    margin-top: 45px;
+  }
+
+  .item {
+    margin-bottom: 20px; /* Espaçamento inferior entre os itens */
+  }
+
+  .search-modal-content .result-table th:nth-child(2),
+  .search-modal-content .result-table td:nth-child(2) {
+    display: none; /* Ocultar a segunda coluna da tabela */
+  }
+
+  .search-btn-home i {
+    color: #fff;
+  }
+
+  .search-modal-content .search-btn-modal,
+  .download-btn {
+    width: 50%; /* Ajustar a largura do botão de busca no modal */
+    padding: 6px 8px; /* Reduzir o padding do botão de busca no modal */
+  }
 }
-
-/* Estilos para telas menores */
-@media screen and (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
-
-    .card {
-        width: calc(45% - 20px);
-        height: auto;
-        padding: 20px;
-    }
-
-    .modal {
-        width: 90%; /* Ajustando a largura do modal para telas menores */
-    }
-
-    .modal-content img {
-        max-width: 90%;
-        height: auto;
-    }
-
-    /* Ajuste para o título ser exibido em uma única linha */
-    .card h2 {
-        white-space: nowrap; /* Evita quebra de linha */
-        overflow: hidden; /* Esconde o conteúdo que ultrapassa a largura */
-        text-overflow: ellipsis; /* Adiciona reticências caso o conteúdo seja cortado */
-    }
-}
-
-/* Estilos para telas maiores */
-@media screen and (min-width: 769px) {
-    .modal {
-        width: 60%; /* Mantendo a largura do modal para telas maiores */
-    }
-    .modal-content img {
-        max-width: 35%; /* Mantendo a largura da imagem dentro do modal para telas maiores */
-        height: auto; /* Mantendo a altura proporcional */
-    }
-}
-
-  </style>
+</style>
 </head>
 <body>
-<nav class="navbar">
-    <div class="search-bar">
-        <input id="searchInput" placeholder="Buscar Livros..." type="text" onkeypress="searchOnEnter(event)"/>
-        <button onclick="search()">Buscar</button>
-    </div>
-</nav>
+<div class="header">Material Complementar</div>
+<button class="search-btn-home" onclick="openSearchModal()">
+    <i class="fas fa-search"></i>
+</button>
 <div class="container">
-    <!-- Example Card -->
-
-    <div class="card" data-article-text="Colonização da Consciência, Redes Sociais, Big Tech's e Metaverso discute as formas de controle do pensamento humano a partir da perspectiva de manipulação de algorítmos. " data-article-description="" data-article-pdf="https://drive.google.com/file/d/1o0sWeuR_0OYdpdScpXx6e7LpXlen_J80/view?usp=sharing">
-        <h2>Colonização da Consciência</h2> <!-- Title above the image -->
+    <div class="item" data-article-text="Colonização da Consciência, Redes Sociais, Big Tech's e Metaverso discute as formas de controle do pensamento humano a partir da perspectiva de manipulação de algorítmos." data-article-description="" data-article-pdf="https://drive.google.com/file/d/1o0sWeuR_0OYdpdScpXx6e7LpXlen_J80/view?usp=sharing">
         <img alt="Article Image" src="https://www.ccnnoticias.com.br/images/Dindara_-_Algoritmo_5.jpg"/>
-        <a class="btn" href="#">Visualizar</a> <!-- "Ler" button inside the card -->
+        <div class="item-content">
+            <h2>Colonização da Consciência</h2>
+            <a class="btn" href="#" onclick="openModal(this, 'https://drive.google.com/file/d/1o0sWeuR_0OYdpdScpXx6e7LpXlen_J80/view?usp=sharing')">Visualizar</a>
+        </div>
     </div>
     
-    <div class="card" data-article-text="Inovação e Cuidados com as Baterias é um tópico de discussão sobre a atual produção e estágios de desenvolvimento das baterias para dispositivos móveis. Os cuidados com carregadores portáteis, carregadores turbo e muito mais!" data-article-description="" data-article-pdf="https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing">
-        <h2>Inovação nas Baterias</h2> <!-- Title above the image -->
-        <img alt="Article Image" src="https://i.pinimg.com/736x/7b/13/44/7b13443c1561b3a26d0662988bfc82ce.jpg"/>
-        <a class="btn" href="#">Visualizar</a> <!-- "Ler" button inside the card -->
+    <div class="item" data-article-text="Inovação e Cuidados com as Baterias é um tópico de discussão sobre a atual produção e estágios de desenvolvimento das baterias para dispositivos móveis. Os cuidados com carregadores portáteis, carregadores turbo e muito mais!" data-article-description="" data-article-pdf="https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing">
+        <img alt="Article Image" src="https://img.freepik.com/vetores-premium/o-andamento-do-carregamento-da-bateria-da-vista-superior-do-telefone_78072-759.jpg"/>
+        <div class="item-content">
+            <h2>Inovação nas Baterias</h2>
+            <a class="btn" href="#" onclick="openModal(this, 'https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing')">Visualizar</a>
+        </div>
     </div>
 
-    <div class="card" data-article-text="Ficção vs Realidade discute o limite entre a ficção, probabilidades e realizações tecnológicas sob a ótica real da ciência, física, química e biologia. O que é possível, imaginável e realizável." data-article-description="" data-article-pdf="https://drive.google.com/file/d/1rmuFTjG-qq_aFbjG83bnDaxYWWz_iWlt/view?usp=sharing">
-        <h2>Ficção vs Realidade</h2> <!-- Title above the image -->
+    <div class="item" data-article-text="Ficção vs Realidade discute o limite entre a ficção, probabilidades e realizações tecnológicas sob a ótica real da ciência, física, química e biologia. O que é possível, imaginável e realizável." data-article-description="" data-article-pdf="https://drive.google.com/file/d/1rmuFTjG-qq_aFbjG83bnDaxYWWz_iWlt/view?usp=sharing">
         <img alt="Article Image" src="https://i.pinimg.com/564x/2d/58/ec/2d58ec7e1db96b865a93255798faf9c2.jpg"/>
-        <a class="btn" href="#">Visualizar</a> <!-- "Ler" button inside the card -->
+        <div class="item-content">
+            <h2>Ficção vs Realidade</h2>
+            <a class="btn" href="#" onclick="openModal(this, 'https://drive.google.com/file/d/1rmuFTjG-qq_aFbjG83bnDaxYWWz_iWlt/view?usp=sharing')">Visualizar</a>
+        </div>
     </div>
 
-    <div class="card" data-article-text="Patologias Tecnológicas discute as doenças associadas com tecnologia e sua influência na sociedade atual, seus impactos, características e como podemos minimizar seus efeitos. " data-article-description="" data-article-pdf="https://drive.google.com/file/d/1QYaM7eLm4aeJCZJB2YDArLJMzpKzdwNV/view?usp=sharing">
-        <h2>Patologias Tecnológicas</h2> <!-- Title above the image -->
+    <div class="item" data-article-text="Patologias Tecnológicas discute as doenças associadas com tecnologia e sua influência na sociedade atual, seus impactos, características e como podemos minimizar seus efeitos." data-article-description="" data-article-pdf="https://drive.google.com/file/d/1QYaM7eLm4aeJCZJB2YDArLJMzpKzdwNV/view?usp=sharing">
         <img alt="Article Image" src="https://i.pinimg.com/564x/f8/ce/4f/f8ce4f16897ac353a9a9c4e5ac00c6d0.jpg"/>
-        <a class="btn" href="#">Visualizar</a> <!-- "Ler" button inside the card -->
+        <div class="item-content">
+            <h2>Patologias Tecnológicas</h2>
+            <a class="btn" href="#" onclick="openModal(this, 'https://drive.google.com/file/d/1QYaM7eLm4aeJCZJB2YDArLJMzpKzdwNV/view?usp=sharing')">Visualizar</a>
+        </div>
     </div>
-
-    <!-- Repeat for more articles -->
 </div>
-<footer>
+<footer class="footer">
     <p>2024</p>
 </footer>
 
 <!-- Modal HTML -->
 <div class="modal" id="articleModal">
     <div class="modal-content">
-        <span class="close" onclick="closeModal()">×</span>
+        <span class="close" onclick="closeModal()">&times;</span>
         <h2 id="modalTitle">Article Title</h2>
         <img alt="Article Image" id="modalImage" src=""/>
         <p id="modalText">Article text...</p>
-        <p id="modalDescription">Description...</p> <!-- Adicione a descrição do livro aqui -->
-        <a class="download-btn" href="#" download target="_blank">Download</a> <!-- Download button inside the modal -->
+        <p id="modalDescription">Description...</p>
+        <a class="btn download-btn" target="_blank">Download</a>
     </div>
 </div>
 
-<!-- Modal para exibir resultados da busca -->
-<div class="modal" id="searchResultsModal">
-    <div class="modal-content">
-        <span class="close" onclick="closeSearchResultsModal()">×</span>
-        <h2>Resultados da Busca</h2>
-        <table class="search-results" id="searchResultsTable">
-            <thead>
-                <tr>
-                    <th>Título</th>
-                    <th>Descrição</th>
-                    <th>Link</th>
-                </tr>
-            </thead>
-            <tbody id="searchResultsBody">
-            </tbody>
-        </table>
+
+<!-- Modal de busca -->
+<div class="modal" id="searchModal">
+    <div class="search-modal-content">
+        <span class="close" onclick="closeSearchModal()">&times;</span>
+        <h2>Pesquisar Conteúdo</h2>
+        <button class="search-btn-modal" onclick="searchInModal()">Buscar</button>
+        <input id="searchInputModal" type="text" placeholder="Buscar Conteúdo..." onkeydown="if (event.key === 'Enter') searchInModal()"/>
+        <div id="searchResult"></div>
     </div>
 </div>
+
 
 <script>
-    document.querySelectorAll('.btn').forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.preventDefault(); // Preventing default link behavior
-            const card = this.closest('.card');
-            const title = card.querySelector('h2').textContent;
-            const imgSrc = card.querySelector('img').src;
-            const articleText = card.dataset.articleText;
-            const articleDescription = card.dataset.articleDescription; // Adicionado para obter a descrição do livro
-            const articlePdf = card.dataset.articlePdf; // Adicionado para obter o URL do PDF
-            const modal = document.getElementById('articleModal');
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalImage').src = imgSrc;
-            document.getElementById('modalText').textContent = articleText;
-            document.getElementById('modalDescription').textContent = articleDescription; // Adicionando a descrição do livro ao modal
-            document.querySelector('.download-btn').href = articlePdf; // Atualizando o link de download com o URL do PDF correspondente
-            modal.style.display = 'block';
-        });
+// Função para abrir o modal de busca
+function openSearchModal() {
+    document.getElementById('searchModal').style.display = 'block';
+}
+
+// Funcionalidade para fechar o modal de busca
+function closeSearchModal() {
+    // Desabilitar o botão de busca temporariamente
+    document.querySelector('.search-btn-home').disabled = true;
+
+    // Fechar o modal de busca
+    document.getElementById('searchModal').style.display = 'none';
+
+    // Reabilitar o botão de busca após um pequeno intervalo de tempo
+    setTimeout(function() {
+        document.querySelector('.search-btn-home').disabled = false;
+    }, 100);
+}
+
+// Função para realizar busca no modal
+function searchInModal() {
+    const searchInput = document.getElementById('searchInputModal').value.trim().toLowerCase();
+    const items = document.querySelectorAll('.item');
+    const searchResultDiv = document.getElementById('searchResult');
+    
+    // Limpar resultados anteriores
+    searchResultDiv.innerHTML = '';
+
+    // Criar a tabela de resultados
+    const table = document.createElement('table');
+    table.classList.add('result-table');
+
+    // Criar a linha de cabeçalho
+    const headerRow = document.createElement('tr');
+    const th1 = document.createElement('th');
+    th1.textContent = 'Título';
+    const th2 = document.createElement('th');
+    th2.textContent = 'Descrição';
+    const th3 = document.createElement('th');
+    th3.textContent = 'Link';
+    headerRow.appendChild(th1);
+    headerRow.appendChild(th2);
+    headerRow.appendChild(th3);
+    table.appendChild(headerRow);
+
+    // Verificar cada item
+    items.forEach(item => {
+        const title = item.querySelector('h2').textContent.trim().toLowerCase();
+        const description = item.dataset.articleText.trim().toLowerCase();
+
+        // Se o título ou descrição corresponderem à pesquisa, adicionar à tabela de resultados
+        if (title.includes(searchInput) || description.includes(searchInput)) {
+            const tr = document.createElement('tr');
+            const td1 = document.createElement('td');
+            td1.textContent = item.querySelector('h2').textContent;
+            const td2 = document.createElement('td');
+            td2.textContent = item.dataset.articleText;
+            const td3 = document.createElement('td');
+            const link = document.createElement('a');
+            link.href = item.dataset.articlePdf;
+            link.textContent = 'Visualizar';
+            link.target = '_blank';
+            td3.appendChild(link);
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            table.appendChild(tr);
+        }
     });
 
-    // Close modal functionality
-    const closeModal = () => {
-        document.getElementById('articleModal').style.display = 'none';
-    }
+    // Adicionar tabela de resultados ao modal
+    searchResultDiv.appendChild(table);
+}
 
-    // Close modal when clicking outside of it
-    window.onclick = function(event) {
-        const modal = document.getElementById('articleModal');
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
+// Função para abrir o modal de artigo
+function openModal(button, pdfUrl) {
+    const item = button.closest('.item');
+    const title = item.querySelector('h2').textContent;
+    const imgSrc = item.querySelector('img').src;
+    const articleText = item.dataset.articleText;
+    const articleDescription = item.dataset.articleDescription;
+    const modal = document.getElementById('articleModal');
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalImage').src = imgSrc;
+    document.getElementById('modalText').textContent = articleText;
+    document.getElementById('modalDescription').textContent = articleDescription;
+    const downloadBtn = modal.querySelector('.download-btn');
+    downloadBtn.setAttribute('href', pdfUrl);
+    downloadBtn.setAttribute('onclick', `window.open('${pdfUrl}', '_blank')`);
+    modal.style.display = 'block';
+}
 
-    function search() {
-        const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
-        const cards = document.querySelectorAll('.card');
-        const searchResultsBody = document.getElementById('searchResultsBody');
-
-        // Limpar resultados anteriores
-        searchResultsBody.innerHTML = '';
-
-        // Verificar cada card
-        cards.forEach(card => {
-            const title = card.querySelector('h2').textContent.trim().toLowerCase();
-            const description = card.dataset.articleText.trim();
-            const pdfLink = card.dataset.articlePdf;
-
-            // Se o título ou descrição corresponderem à pesquisa, adicionar ao resultado
-            if (title.includes(searchInput) || description.toLowerCase().includes(searchInput)) {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${title}</td>
-                    <td>${description}</td>
-                    <td><a href="#" onclick="openCard('${pdfLink}')">Visualizar</a></td>
-                `;
-                searchResultsBody.appendChild(row);
-            }
-        });
-
-        // Mostrar modal de resultados
-        document.getElementById('searchResultsModal').style.display = 'block';
-    }
-
-    function closeSearchResultsModal() {
-        document.getElementById('searchResultsModal').style.display = 'none';
-    }
-
-    function openCard(pdfLink) {
-        window.open(pdfLink, '_blank');
-    }
-
-    function searchOnEnter(event) {
-        if (event.key === 'Enter') {
-            search();
-        }
-    }
+// Funcionalidade para fechar o modal
+function closeModal() {
+    document.getElementById('articleModal').style.display = 'none';
+}
 </script>
 
 </body>

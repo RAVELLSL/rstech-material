@@ -1,438 +1,171 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Material Complementar</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
 <style>
-/* Estilos gerais */
-body, button, input, select, textarea {
-    font-family: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+  body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-}
+    background: linear-gradient(to right, #ADD8E6, #FFFFFF, #ADD8E6); 
+  }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.item {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center; /* Centralizar título */
-}
-
-.item img {
-    width: 100%;
-    height: 245px; /* Aumenta a altura da imagem */
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-    object-position: top; /* Exibir a partir do topo */
-}
-
-.item-content {
-    padding: 20px;
-}
-
-.item h2 {
-    margin: 0 auto; /* Centralizar título */
-    font-size: 1.2rem;
-    color: #333;
-}
-
-.btn {
-    background: linear-gradient(to right, #444, #888);
+  header {
+    background-color: #333;
     color: #fff;
-    padding: 6px 10px; /* Reduzir ainda mais o padding */
-    text-decoration: none;
-    border-radius: 15px; /* Ajustar o raio do botão */
-    transition: background 0.3s ease;
-    display: block;
-    width: 30%; /* Ajustar a largura do botão */
-    text-align: center;    
-    margin: 8px auto; /* Centralizar e adicionar margem */
-}
-
-.btn:hover {
-    background: linear-gradient(to right, #333, #777);
-}
-
-.search-bar,
-.navbar {
-    text-align: center; /* Centralizar mecanismo de busca */
-}
-
-.footer {
+    padding: 5px;
     text-align: center;
-    font-weight: bold;
-    background-color: transparent;
-    color: #070707;
-    padding: 10px 0;
-}
+  }
 
-/* Estilos do Modal */
-.modal {
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .section {
+    padding: 20px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.9); 
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; /* Adicionando posição relativa para o card */
+  }
+
+  h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #666;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+
+  button {
+    background: linear-gradient(to bottom, #444444, #666666);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background: linear-gradient(to bottom, #333333, #555555);
+  }
+
+  .modal {
     display: none;
-    position: fixed;
+    position: absolute; /* Alterando para posição absoluta */
     z-index: 1000;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 95%;
-    max-width: auto;
-    max-height: 80%;
-    border-radius: 12px;
+    transform: translateX(-50%); /* Centralizando horizontalmente */
+    width: calc(100% - 40px); /* Largura igual à largura do card com padding */
+    max-width: 760px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro */
-}
+    text-align: center; /* Centralizando o conteúdo */
+  }
 
-.modal-content {
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    box-sizing: border-box;
-    position: relative;
-}
-
-.close {
+  .close {
     color: #aaa;
-    font-size: 24px;
-    position:absolute;
-    top: 10px;
-    right: 20px;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-}
-
-/* Estilos para as imagens nos modais */
-.modal-content img {
-    max-width: 100%;
-    max-height: 300px;
-    border-radius: 10px;
-}
-
-/* Estilos para o modal de busca */
-.search-modal-content {
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    box-sizing: border-box;
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.search-modal-content input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.search-modal-content .search-btn-modal,
-.download-btn {
-    background: linear-gradient(to right, #444, #888);
-    color: #fff;
-    padding: 6px 10px; /* Reduzir ainda mais o padding */
-    width: 30%; /* Ajustar a largura do botão */
-    text-decoration: none;
-    border-radius: 15px; /* Ajustar o raio do botão */
-    transition: background 0.3s ease;
-    border: none;
-    cursor: pointer;
-    display: inline-block; /* Alterar para inline-block */
-    text-align: center; /* Centralizar texto */
-    margin: 8px auto; /* Centralizar e adicionar margem */
-}
-
-.search-modal-content .search-btn-modal:hover,
-.download-btn:hover {
-    background: linear-gradient(to right, #333, #777);
-}
-
-/* Estilos para a tabela de resultados */
-.result-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.result-table th, .result-table td {
-    padding: 8px;
-    border: 1px solid #ddd;
-}
-
-.result-table th {
-    background-color: #f2f2f2;
-}
-
-.result-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.result-table tr:hover {
-    background-color: #ddd;
-}
-
-.result-table a {
-    color: #0056b3;
-    text-decoration: none;
-}
-
-.result-table a:hover {
-    text-decoration: underline;
-}
-
-/* Estilos para o botão de busca */
-.search-btn-home {
     position: absolute;
-    top: 20px;
-    right: 410px;
-    background: linear-gradient(to right, #444, #888);
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 25px;
-    transition: background 0.3s ease;
-    border: none;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
     cursor: pointer;
-    z-index: 1000;
-}
-
-.search-btn-home:hover {
-    background: linear-gradient(to right, #333, #777);
-}
-
-/* Estilos para o cabeçalho */
-.header {
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-@media only screen and (max-width: 768px) {
-  body, button, input, select, textarea, .header, .container, .item, .search-modal-content, .footer {
-    font-family: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
   }
 
-  .header {
-    margin-top: 20px;
-  }
-  
-  .search-btn-home {
-    right: 50%;
-    margin-top: 40px;
-    transform: translateX(50%);
-  }
-  
-  .container {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    margin-top: 45px;
+  .close:hover {
+    color: #000;
   }
 
-  .item {
-    margin-bottom: 20px; /* Espaçamento inferior entre os itens */
+  .modal img {
+    max-width: 100%;
+    max-height: 400px; /* Definindo uma altura máxima para as imagens */
+    height: auto;
+    margin-bottom: 10px;
   }
 
-  .search-modal-content .result-table th:nth-child(2),
-  .search-modal-content .result-table td:nth-child(2) {
-    display: none; /* Ocultar a segunda coluna da tabela */
+  .modal button {
+    display: block;
+    margin: 0 auto 10px auto; /* Centralizando e adicionando margem inferior */
   }
-
-  .search-btn-home i {
-    color: #fff;
-  }
-
-  .search-modal-content .search-btn-modal,
-  .download-btn {
-    width: 50%; /* Ajustar a largura do botão de busca no modal */
-    padding: 6px 8px; /* Reduzir o padding do botão de busca no modal */
-  }
-}
 </style>
 </head>
 <body>
-<div class="header">Material Complementar</div>
-<button class="search-btn-home" onclick="openSearchModal()">
-    <i class="fas fa-search"></i>
-</button>
+
+<header>
+  <h1>Material Complementar</h1>
+</header>
+
 <div class="container">
-    <div class="item" data-article-text="Colonização da Consciência, Redes Sociais, Big Tech's e Metaverso discute as formas de controle do pensamento humano a partir da perspectiva de manipulação de algorítmos." data-article-description="" data-article-pdf="https://drive.google.com/file/d/1o0sWeuR_0OYdpdScpXx6e7LpXlen_J80/view?usp=sharing">
-        <img alt="Article Image" src="https://www.ccnnoticias.com.br/images/Dindara_-_Algoritmo_5.jpg"/>
-        <div class="item-content">
-            <h2>Colonização da Consciência</h2>
-            <a class="btn" href="#" onclick="openModal(this, 'https://drive.google.com/file/d/1o0sWeuR_0OYdpdScpXx6e7LpXlen_J80/view?usp=sharing')">Visualizar</a>
-        </div>
+  <div class="section">
+    <h2>Colonização da Consciência</h2>
+    <p>Colonização da Consciência, Redes Sociais, Big Tech's e Metaverso discute as formas de controle do pensamento humano a partir da perspectiva de manipulação de algoritmos.</p>
+    <button onclick="toggleModal('modal1')">Visualizar</button>
+    <div id="modal1" class="modal">
+      <span class="close" onclick="toggleModal('modal1')">&times;</span>
+      <img src="https://www.ccnnoticias.com.br/images/Dindara_-_Algoritmo_5.jpg" alt="Descrição da imagem">
+      <button onclick="window.open('https://drive.google.com/file/d/1o0sWeuR_0OYdpdScpXx6e7LpXlen_J80/view?usp=sharing')">Acessar</button>
     </div>
-    
-    <div class="item" data-article-text="Inovação e Cuidados com as Baterias é um tópico de discussão sobre a atual produção e estágios de desenvolvimento das baterias para dispositivos móveis. Os cuidados com carregadores portáteis, carregadores turbo e muito mais!" data-article-description="" data-article-pdf="https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing">
-        <img alt="Article Image" src="https://img.freepik.com/vetores-premium/o-andamento-do-carregamento-da-bateria-da-vista-superior-do-telefone_78072-759.jpg"/>
-        <div class="item-content">
-            <h2>Inovação nas Baterias</h2>
-            <a class="btn" href="#" onclick="openModal(this, 'https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing')">Visualizar</a>
-        </div>
-    </div>
+  </div>
 
-    <div class="item" data-article-text="Ficção vs Realidade discute o limite entre a ficção, probabilidades e realizações tecnológicas sob a ótica real da ciência, física, química e biologia. O que é possível, imaginável e realizável." data-article-description="" data-article-pdf="https://drive.google.com/file/d/1rmuFTjG-qq_aFbjG83bnDaxYWWz_iWlt/view?usp=sharing">
-        <img alt="Article Image" src="https://i.pinimg.com/564x/2d/58/ec/2d58ec7e1db96b865a93255798faf9c2.jpg"/>
-        <div class="item-content">
-            <h2>Ficção vs Realidade</h2>
-            <a class="btn" href="#" onclick="openModal(this, 'https://drive.google.com/file/d/1rmuFTjG-qq_aFbjG83bnDaxYWWz_iWlt/view?usp=sharing')">Visualizar</a>
-        </div>
+  <div class="section">
+    <h2>Inovação nas Baterias</h2>
+    <p>Inovação e Cuidados com as Baterias é um tópico de discussão sobre a atual produção e estágios de desenvolvimento das baterias para dispositivos móveis. Os cuidados com carregadores portáteis, carregadores turbo e muito mais!</p>
+    <button onclick="toggleModal('modal2')">Visualizar</button>
+    <div id="modal2" class="modal">
+      <span class="close" onclick="toggleModal('modal2')">&times;</span>
+      <img src="https://img.freepik.com/vetores-premium/o-andamento-do-carregamento-da-bateria-da-vista-superior-do-telefone_78072-759.jpg" alt="Descrição da imagem">
+      <button onclick="window.open('https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing')">Acessar</button>
     </div>
+  </div>
 
-    <div class="item" data-article-text="Patologias Tecnológicas discute as doenças associadas com tecnologia e sua influência na sociedade atual, seus impactos, características e como podemos minimizar seus efeitos." data-article-description="" data-article-pdf="https://drive.google.com/file/d/1QYaM7eLm4aeJCZJB2YDArLJMzpKzdwNV/view?usp=sharing">
-        <img alt="Article Image" src="https://i.pinimg.com/564x/f8/ce/4f/f8ce4f16897ac353a9a9c4e5ac00c6d0.jpg"/>
-        <div class="item-content">
-            <h2>Patologias Tecnológicas</h2>
-            <a class="btn" href="#" onclick="openModal(this, 'https://drive.google.com/file/d/1QYaM7eLm4aeJCZJB2YDArLJMzpKzdwNV/view?usp=sharing')">Visualizar</a>
-        </div>
+  <div class="section">
+    <h2>Ficção vs Realidade</h2>
+    <p>Ficção vs Realidade discute o limite entre a ficção, probabilidades e realizações tecnológicas sob a ótica real da ciência, física, química e biologia. O que é possível, imaginável e realizável.</p>
+    <button onclick="toggleModal('modal3')">Visualizar</button>
+    <div id="modal3" class="modal">
+      <span class="close" onclick="toggleModal('modal3')">&times;</span>
+      <img src="https://i.pinimg.com/564x/2d/58/ec/2d58ec7e1db96b865a93255798faf9c2.jpg" alt="Descrição da imagem">
+      <button onclick="window.open('https://drive.google.com/file/d/1rmuFTjG-qq_aFbjG83bnDaxYWWz_iWlt/view?usp=sharing')">Acessar</button>
     </div>
+  </div>
+
+  <div class="section">
+    <h2>Patologias Tecnológicas</h2>
+    <p>Patologias Tecnológicas discute as doenças associadas com tecnologia e sua influência na sociedade atual, seus impactos, características e como podemos minimizar seus efeitos.</p>
+    <button onclick="toggleModal('modal4')">Visualizar</button>
+    <div id="modal4" class="modal">
+      <span class="close" onclick="toggleModal('modal4')">&times;</span>
+      <img src="https://i.pinimg.com/564x/f8/ce/4f/f8ce4f16897ac353a9a9c4e5ac00c6d0.jpg" alt="Descrição da imagem">
+      <button onclick="window.open('https://drive.google.com/file/d/1QYaM7eLm4aeJCZJB2YDArLJMzpKzdwNV/view?usp=sharing')">Acessar</button>
+    </div>
+  </div>
+  <!-- Outras seções -->
 </div>
-<footer class="footer">
-    <p>2024</p>
-</footer>
-
-<!-- Modal HTML -->
-<div class="modal" id="articleModal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2 id="modalTitle">Article Title</h2>
-        <img alt="Article Image" id="modalImage" src=""/>
-        <p id="modalText">Article text...</p>
-        <p id="modalDescription">Description...</p>
-        <a class="btn download-btn" target="_blank">Download</a>
-    </div>
-</div>
-
-
-<!-- Modal de busca -->
-<div class="modal" id="searchModal">
-    <div class="search-modal-content">
-        <span class="close" onclick="closeSearchModal()">&times;</span>
-        <h2>Pesquisar Conteúdo</h2>
-        <button class="search-btn-modal" onclick="searchInModal()">Buscar</button>
-        <input id="searchInputModal" type="text" placeholder="Buscar Conteúdo..." onkeydown="if (event.key === 'Enter') searchInModal()"/>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
 
 <script>
-// Função para abrir o modal de busca
-function openSearchModal() {
-    document.getElementById('searchModal').style.display = 'block';
+function toggleModal(id) {
+  var modal = document.getElementById(id);
+  modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
 }
 
-// Funcionalidade para fechar o modal de busca
-function closeSearchModal() {
-    // Desabilitar o botão de busca temporariamente
-    document.querySelector('.search-btn-home').disabled = true;
-
-    // Fechar o modal de busca
-    document.getElementById('searchModal').style.display = 'none';
-
-    // Reabilitar o botão de busca após um pequeno intervalo de tempo
-    setTimeout(function() {
-        document.querySelector('.search-btn-home').disabled = false;
-    }, 100);
-}
-
-// Função para realizar busca no modal
-function searchInModal() {
-    const searchInput = document.getElementById('searchInputModal').value.trim().toLowerCase();
-    const items = document.querySelectorAll('.item');
-    const searchResultDiv = document.getElementById('searchResult');
-    
-    // Limpar resultados anteriores
-    searchResultDiv.innerHTML = '';
-
-    // Criar a tabela de resultados
-    const table = document.createElement('table');
-    table.classList.add('result-table');
-
-    // Criar a linha de cabeçalho
-    const headerRow = document.createElement('tr');
-    const th1 = document.createElement('th');
-    th1.textContent = 'Título';
-    const th2 = document.createElement('th');
-    th2.textContent = 'Descrição';
-    const th3 = document.createElement('th');
-    th3.textContent = 'Link';
-    headerRow.appendChild(th1);
-    headerRow.appendChild(th2);
-    headerRow.appendChild(th3);
-    table.appendChild(headerRow);
-
-    // Verificar cada item
-    items.forEach(item => {
-        const title = item.querySelector('h2').textContent.trim().toLowerCase();
-        const description = item.dataset.articleText.trim().toLowerCase();
-
-        // Se o título ou descrição corresponderem à pesquisa, adicionar à tabela de resultados
-        if (title.includes(searchInput) || description.includes(searchInput)) {
-            const tr = document.createElement('tr');
-            const td1 = document.createElement('td');
-            td1.textContent = item.querySelector('h2').textContent;
-            const td2 = document.createElement('td');
-            td2.textContent = item.dataset.articleText;
-            const td3 = document.createElement('td');
-            const link = document.createElement('a');
-            link.href = item.dataset.articlePdf;
-            link.textContent = 'Visualizar';
-            link.target = '_blank';
-            td3.appendChild(link);
-            tr.appendChild(td1);
-            tr.appendChild(td2);
-            tr.appendChild(td3);
-            table.appendChild(tr);
-        }
-    });
-
-    // Adicionar tabela de resultados ao modal
-    searchResultDiv.appendChild(table);
-}
-
-// Função para abrir o modal de artigo
-function openModal(button, pdfUrl) {
-    const item = button.closest('.item');
-    const title = item.querySelector('h2').textContent;
-    const imgSrc = item.querySelector('img').src;
-    const articleText = item.dataset.articleText;
-    const articleDescription = item.dataset.articleDescription;
-    const modal = document.getElementById('articleModal');
-    document.getElementById('modalTitle').textContent = title;
-    document.getElementById('modalImage').src = imgSrc;
-    document.getElementById('modalText').textContent = articleText;
-    document.getElementById('modalDescription').textContent = articleDescription;
-    const downloadBtn = modal.querySelector('.download-btn');
-    downloadBtn.setAttribute('href', pdfUrl);
-    downloadBtn.setAttribute('onclick', `window.open('${pdfUrl}', '_blank')`);
-    modal.style.display = 'block';
-}
-
-// Funcionalidade para fechar o modal
-function closeModal() {
-    document.getElementById('articleModal').style.display = 'none';
+window.onload = function() {
+  var cards = document.querySelectorAll('.section');
+  var modal = document.querySelector('.modal');
+  var cardWidth = cards[0].offsetWidth;
+  modal.style.width = cardWidth + 'px';
 }
 </script>
 

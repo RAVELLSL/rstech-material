@@ -1,189 +1,191 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artigos</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #ADD8E6, #FFFFFF, #ADD8E6);
-            min-height: 100vh;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Material Complementar</title>
+<style>
+  body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: linear-gradient(to right, #ADD8E6, #FFFFFF, #ADD8E6); 
+  }
 
-        .header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-        }
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+  }
 
-        .container {
-            width: 80%;
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 
-        h2 {
-            font-size: 30px;
-            margin: 0;
-        }
+  .section {
+    padding: 20px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.9); 
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; /* Adicionando posição relativa para o card */
+  }
 
-        .article {
-            margin-bottom: 40px;  /* Aumenta o espaço entre as publicações */
-        }
+  h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
 
-        .article-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+  p {
+    color: #666;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
 
-        .article-description {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 10px;
-            text-align: justify;
-        }
+  button {
+    background: linear-gradient(to bottom, #444444, #666666);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
 
-        .read-more-btn {
-            background: linear-gradient(to bottom, #444444, #000000);
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+  button:hover {
+    background: linear-gradient(to bottom, #333333, #555555);
+  }
 
-        .read-more-btn:hover {
-            background: linear-gradient(to bottom, #000000, #444444);
-        }
+  .modal {
+    display: none;
+    position: absolute; /* Alterando para posição absoluta */
+    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%); /* Centralizando horizontalmente */
+    width: calc(100% - 40px); /* Largura igual à largura do card com padding */
+    max-width: 760px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center; /* Centralizando o conteúdo */
+  }
 
-        .article-img {
-            width: 100%;
-            display: block;
-            margin-bottom: 10px;
-            border-radius: 10px;
-        }
+  .close {
+    color: #aaa;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+  }
 
-        .modal-content {
-            display: none;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            margin-top: 10px;
-        }
+  .close:hover {
+    color: #000;
+  }
 
-        .modal-content p {
-            font-size: 18px;
-            text-align: justify;
-            margin-bottom: 10px;
-        }
+  .modal img {
+    max-width: 100%;
+    max-height: 400px; /* Definindo uma altura máxima para as imagens */
+    height: auto;
+    margin-bottom: 10px;
+  }
 
-        .modal-content img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
+  .modal button {
+    display: block;
+    margin: 0 auto 10px auto; /* Centralizando e adicionando margem inferior */
+  }
 
-        .footer {
-            background-color: transparent;
-            font-weight: bold;
-            color: #131212;
-            text-align: center;
-            padding: 5px 0;
-        }
+  .footer {
+    display: flex; /* Adiciona flexbox para centralizar verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    width: auto%;
+    padding: 10px;
+    background-color: transparent;
+    color: #070707;
+    font-weight: bold;
+    position: relative;
+    bottom: 0;
+}
 
-        @media only screen and (max-width: 600px) {
-            .container {
-                width: 100%;
-                padding: 10px;
-            }
-        }
-    </style>
+</style>
 </head>
 <body>
-    <div class="header">
-        <h2>Artigos</h2>
+
+<header>
+  <h1>Material Complementar</h1>
+</header>
+
+<div class="container">
+  <div class="section">
+    <h2>Colonização da Consciência</h2>
+    <p>Colonização da Consciência, Redes Sociais, Big Tech's e Metaverso discute as formas de controle do pensamento humano a partir da perspectiva de manipulação de algoritmos.</p>
+    <button onclick="toggleModal('modal1')">Visualizar</button>
+    <div id="modal1" class="modal">
+      <span class="close" onclick="toggleModal('modal1')">&times;</span>
+      <img src="https://www.ccnnoticias.com.br/images/Dindara_-_Algoritmo_5.jpg" alt="Descrição da imagem">
+      <button onclick="window.open('https://drive.google.com/file/d/1o0sWeuR_0OYdpdScpXx6e7LpXlen_J80/view?usp=sharing')">Acessar</button>
     </div>
-    <div class="container">
-        <div class="article">
-            <div class="article-title">Computação Ubíqua</div>
-            <div class="article-description">A computação ubíqua está revolucionando a interação com a tecnologia, exigindo adaptação dos usuários e investimento em atualização para superar desafios e aproveitar oportunidades de inovação em diversos setores.</div>
-            <button class="read-more-btn" onclick="toggleModal('modal1')" data-modal="modal1">Ler mais</button>
-            <div class="modal-content" id="modal1">
-                <img class="article-img" src="https://img.olhardigital.com.br/wp-content/uploads/2021/04/Tecnologia-da-informacao.jpg" alt="Computação Ubíqua">
-                <p>A computação ubíqua, também conhecida como computação pervasiva, está transformando fundamentalmente a forma como interagimos com a tecnologia em nossas vidas diárias. Esse paradigma tecnológico exige uma adaptação tanto da indústria e do comércio quanto dos próprios usuários. A integração contínua de dispositivos inteligentes em diversos aspectos de nossas rotinas requer um engajamento maior por parte dos usuários durante o processo de transição. É essencial que as pessoas estejam dispostas a aprender e explorar as novas tecnologias, mesmo diante de falhas simples, graves ou até mesmo catastróficas que possam ocorrer nesse processo. O exercício da paciência se torna crucial para superar esses obstáculos e permitir o avanço da computação ubíqua.</p>
-                <p>Durante o período de adaptação, diversas dificuldades surgem, como a interoperabilidade entre dispositivos e sistemas, assim como questões relacionadas à privacidade e segurança dos dados pessoais. Para garantir o sucesso dessa transição, é necessário investir na atualização constante de sistemas, conhecimentos e conceitos. A compreensão dos princípios subjacentes à computação ubíqua, como computação em nuvem, Internet das Coisas (IoT) e inteligência artificial, é fundamental para aproveitar todo o potencial dessa abordagem.</p>
-                <p>A importância da atualização vai além das empresas e indústrias. Os usuários também precisam se manter informados e atualizados para usufruir dos benefícios proporcionados pela computação ubíqua. Essa atualização inclui tanto o aprendizado de novas habilidades tecnológicas quanto a conscientização sobre práticas de segurança cibernética e proteção de dados pessoais. Somente com uma abordagem proativa e educativa podemos maximizar as oportunidades de inovação e crescimento oferecidas pela computação ubíqua.</p>
-            </div>
-        </div>
+  </div>
 
-        <div class="article">
-            <div class="article-title">Inteligência Artificial Generativa</div>
-            <div class="article-description">A Inteligência Artificial Generativa (IAG) usa redes neurais para criar conteúdo original em diversos campos, enfrentando desafios éticos e de viés de dados para impulsionar a inovação e eficiência.</div>
-            <button class="read-more-btn" onclick="toggleModal('modal2')" data-modal="modal2">Ler mais</button>
-            <div class="modal-content" id="modal2">
-                <img class="article-img" src="https://www.cxtoday.com/wp-content/uploads/2023/04/robot-at-computer-screen-850.jpg" alt="Computação Ubíqua">
-                <p>A Inteligência Artificial Generativa (IAG) representa um segmento fascinante da inteligência artificial que concentra seus esforços em criar sistemas capazes de produzir conteúdo novo e original, emulando padrões encontrados em conjuntos de dados. Esses sistemas operam com base em princípios de teoria de probabilidade e aprendizado de máquina, aproveitando o poder das redes neurais artificiais para discernir e replicar padrões complexos. A IAG se desdobra em duas abordagens principais: modelos generativos explícitos, que direcionam seus esforços para entender e reproduzir diretamente a distribuição de probabilidade dos dados, e modelos implícitos, que se concentram em transformar uma distribuição simples em uma mais complexa, ampliando assim a capacidade de geração de conteúdo.</p>
-                <p>A aplicação da IAG se estende por diversos domínios, desde a arte e o design de produtos até a medicina e a composição musical, impulsionando a inovação e estimulando a criatividade em diferentes campos. Contudo, esse campo também enfrenta desafios significativos, como a necessidade de mitigar vieses inerentes aos dados e lidar com questões éticas relacionadas à geração e disseminação de conteúdo falso. Apesar desses obstáculos, a IAG continua sendo um campo promissor para o avanço tecnológico, com pesquisadores e desenvolvedores dedicados trabalhando arduamente para superar esses desafios e explorar todo o potencial dessa tecnologia emergente. Além disso, a Inteligência Artificial Generativa (IAG) oferece uma ampla gama de possibilidades de utilização em diversos setores.</p>
-                <p>Na área da arte, por exemplo, artistas e designers podem empregar sistemas baseados em IAG para criar obras de arte originais ou para auxiliar na geração de conceitos criativos. No design de produtos, a IAG pode ser utilizada para a criação automática de designs inovadores e personalizados, levando em consideração preferências individuais e tendências de mercado. Na medicina, a IAG tem potencial para revolucionar o diagnóstico e o tratamento de doenças, permitindo a análise e interpretação de grandes volumes de dados médicos para identificar padrões e tendências que podem auxiliar os profissionais de saúde no processo de tomada de decisão. A IAG pode ser aplicada na descoberta de novos medicamentos, agilizando o processo de pesquisa e desenvolvimento farmacêutico. Na composição musical, a IAG pode ser utilizada para gerar composições musicais originais, adaptadas ao estilo e preferências do usuário, ou para auxiliar compositores na criação de melodias e arranjos complexos. Esses são apenas alguns exemplos das inúmeras formas de utilização da Inteligência Artificial Generativa, destacando seu potencial para impulsionar a inovação e a criatividade em diversos campos.</p>
-            </div>
-        </div>
-
-        <div class="article">
-            <div class="article-title">Hiperconectividade: 5G e Starlink</div>
-            <div class="article-description">5G e Starlink revolucionam conectividade global com velocidade e acesso, atendendo áreas terrestres e remotas via satélite, impulsionando inovação e inclusão digital apesar de desafios.</div>
-            <button class="read-more-btn" onclick="toggleModal('modal3')" data-modal="modal3">Ler mais</button>
-            <div class="modal-content" id="modal3">
-                <img class="article-img" src="https://ogimg.infoglobo.com.br/in/23205494-d73-e3e/FT1086A/78822969_EL-Hiperconectividade-Ilustracao-de-Silvana-Mattievitch-1.jpg?timestamp=1" alt="Computação Ubíqua">
-                <p>No cenário atual, a conectividade é uma parte essencial da vida cotidiana, impulsionando a forma como trabalhamos, nos comunicamos, nos entretemos e até mesmo como nos deslocamos. A evolução da tecnologia de rede tem sido uma história de constante inovação, buscando satisfazer as crescentes demandas por velocidade, confiabilidade e alcance. Nesse contexto, duas tecnologias emergentes se destacam: a rede 5G e o Starlink. Vamos explorar como essas tecnologias estão moldando a paisagem da hiperconexão e redefinindo a forma como nos conectamos à internet.</p>
-                <p>A rede 5G representa a próxima geração de tecnologia de comunicação sem fio e promete revolucionar a conectividade global. Com velocidades de dados significativamente mais rápidas do que as redes 4G existentes, o 5G tem o potencial de transformar completamente a maneira como interagimos com a internet. Velocidade Incomparável: Uma das características mais marcantes do 5G é sua velocidade impressionante. Com taxas teóricas de transferência de dados de até 20 Gbps, o 5G é várias vezes mais rápido do que seu antecessor, permitindo downloads e uploads de alta velocidade, streaming de vídeo de alta definição sem interrupções e jogos online sem latência perceptível. Baixa Latência: Além da velocidade, o 5G também oferece uma latência significativamente reduzida em comparação com o 4G. Isso significa que o tempo que leva para os dispositivos se comunicarem entre si e com a rede é drasticamente reduzido. Essa baixa latência é crucial para aplicativos sensíveis ao tempo, como realidade virtual (RV), internet das coisas (IoT) e veículos autônomos. Maior Capacidade e Confiabilidade: A rede 5G é projetada para suportar um número muito maior de dispositivos conectados simultaneamente, tornando-a ideal para ambientes densamente povoados, como áreas urbanas e grandes eventos. Além disso, as tecnologias de antena avançadas e o espectro de frequência expandido do 5G ajudam a garantir uma conexão mais confiável em uma variedade de condições. Aplicações Inovadoras: A combinação de velocidade, baixa latência e confiabilidade do 5G abre caminho para uma ampla gama de novas aplicações e serviços. Desde cirurgias remotas assistidas por realidade aumentada até cidades inteligentes totalmente conectadas, o 5G está pavimentando o caminho para um futuro onde a conectividade ultrarrápida é a norma.</p>
-                <p>Enquanto o 5G promete revolucionar a conectividade em terra, o Starlink está mirando nos céus para fornecer acesso à internet em áreas remotas e subatendidas ao redor do mundo. Desenvolvido pela SpaceX, o Starlink é um ambicioso projeto de constelação de satélites que visa criar uma rede global de internet de alta velocidade. Acesso Universal: Uma das principais vantagens do Starlink é sua capacidade de oferecer acesso à internet em regiões onde as infraestruturas terrestres são limitadas ou inexistentes. Isso inclui áreas rurais, ilhas remotas, navios em alto mar e regiões afetadas por desastres naturais, onde a instalação de cabos de fibra óptica ou torres de celular é inviável. Velocidade e Latência Competitivas: Embora a tecnologia de satélite tradicional tenha sido criticada por sua alta latência e velocidades de dados relativamente baixas, o Starlink busca superar essas limitações com uma constelação de milhares de satélites de baixa órbita terrestre (LEO). Isso permite que o Starlink ofereça velocidades de internet comparáveis às redes terrestres tradicionais, com latência na faixa de 20-40 milissegundos, tornando-a adequada para uma variedade de aplicativos exigentes. Desafios Técnicos e Ambientais: No entanto, o Starlink enfrenta uma série de desafios técnicos e ambientais. A implantação e manutenção de uma constelação de satélites em órbita baixa exigem uma logística complexa e custos significativos. Além disso, preocupações ambientais, como a potencial poluição luminosa e a interferência com observações astronômicas, têm sido levantadas. Potencial de Disrupção: Apesar dos desafios, o Starlink tem o potencial de revolucionar o mercado de internet global, desafiando os provedores de serviços tradicionais e democratizando o acesso à informação em todo o mundo. Com preços competitivos e uma cobertura global, o Starlink pode se tornar uma opção atraente para consumidores e empresas em áreas atualmente mal atendidas.</p>
-                <p>À medida que a rede 5G e o Starlink continuam a se expandir e evoluir, podemos esperar uma era de hiperconexão sem precedentes, onde pessoas, dispositivos e objetos estão interconectados de maneiras cada vez mais complexas e integradas. Essas tecnologias não apenas ampliarão o acesso à internet, mas também catalisarão a inovação em uma ampla gama de setores, desde a saúde e a educação até a indústria e o entretenimento. No entanto, é importante reconhecer que a hiperconexão também traz consigo desafios e preocupações, como questões de privacidade e segurança cibernética, desigualdades digitais e impactos ambientais. À medida que avançamos para um futuro cada vez mais conectado, é essencial abordar essas questões de forma proativa e colaborativa, garantindo que todos possam colher os benefícios da revolução da conectividade. Em última análise, a hiperconexão representa uma oportunidade sem precedentes para transformar positivamente o mundo em que vivemos, capacitando indivíduos e comunidades, impulsionando a inovação e promovendo um futuro mais inclusivo e sustentável para todos.</p>
-            </div>
-        </div>
-
-        <div class="article">
-            <div class="article-title">Computação Quântica e IA</div>
-            <div class="article-description">A fusão entre computação quântica e inteligência artificial promete transformar setores como medicina e transporte, melhorando diagnósticos médicos e segurança em veículos autônomos. Desafios como escalabilidade e ética devem ser superados para garantir benefícios equitativos.</div>
-            <button class="read-more-btn" onclick="toggleModal('modal4')" data-modal="modal4">Ler mais</button>
-            <div class="modal-content" id="modal4">
-                <img class="article-img" src="https://www.nucleodoconhecimento.com.br/wp-content/uploads/2019/06/computa%C3%A7%C3%A3o-quantica.jpg" alt="Computação Ubíqua">
-                <p>Nos últimos anos, a convergência entre a computação quântica e a inteligência artificial (IA) tem despertado um interesse crescente em diversos setores da sociedade. Essa sinergia promete revolucionar não apenas a forma como lidamos com a tecnologia, mas também diversos aspectos da vida cotidiana. A computação quântica, com sua capacidade de processamento exponencialmente maior do que os computadores clássicos, oferece uma nova perspectiva para a resolução de problemas complexos que desafiam os limites da computação convencional. Uma das áreas de pesquisa mais promissoras é o desenvolvimento de algoritmos quânticos voltados para aprimorar as capacidades dos sistemas de IA. Com a utilização de computadores quânticos, é possível acelerar o treinamento de redes neurais profundas, reduzindo significativamente o tempo necessário para processar grandes volumes de dados e melhorando a eficiência dos sistemas de IA. Além disso, a capacidade dos qubits de representar múltiplos estados simultaneamente pode contribuir para melhorar o reconhecimento de padrões e a otimização de algoritmos de busca, proporcionando avanços significativos em áreas como visão computacional e processamento de linguagem natural.</p>
-                <p>Essas inovações têm o potencial de impactar uma variedade de setores, desde a medicina até a indústria automotiva, transformando a forma como interagimos com a tecnologia em nosso dia a dia. Por exemplo, sistemas de diagnóstico médico baseados em IA podem se beneficiar dos avanços da computação quântica para processar imagens médicas com maior precisão e rapidez, auxiliando os profissionais de saúde no diagnóstico precoce de doenças. Da mesma forma, veículos autônomos podem se tornar mais seguros e eficientes com o uso de algoritmos quânticos para processar dados sensoriais em tempo real, possibilitando uma condução mais precisa e adaptável às condições do ambiente. No entanto, apesar do enorme potencial dessa convergência, ainda há desafios a serem superados, como a escalabilidade dos sistemas quânticos e questões éticas relacionadas à segurança e ao viés algorítmico. É essencial que os avanços tecnológicos sejam acompanhados por uma reflexão ética sobre seu impacto na sociedade e no meio ambiente, garantindo que os benefícios sejam equitativamente distribuídos e que os riscos sejam mitigados de forma responsável. Com o tempo, a interseção entre computação quântica e inteligência artificial promete impulsionar uma nova era de inovação e progresso, moldando um futuro onde a tecnologia está cada vez mais integrada ao nosso cotidiano, melhorando a qualidade de vida e impulsionando o desenvolvimento humano.</p>
-                <p>Outra aplicação promissora é a utilização de técnicas quânticas para melhorar a segurança e a privacidade dos sistemas de IA. Os protocolos criptográficos baseados em computação quântica oferecem uma proteção mais robusta contra ataques de hackers, explorando propriedades intrínsecas da mecânica quântica. Isso pode ser especialmente relevante em setores sensíveis, como saúde e finanças, onde a privacidade dos dados é de suma importância. Além disso, a computação quântica pode impulsionar avanços em problemas complexos que desafiam os sistemas de IA convencionais. Por exemplo, algoritmos quânticos podem otimizar cadeias de suprimentos, desenvolver novos materiais e simular sistemas biológicos complexos. Essas aplicações têm o potencial de impactar positivamente áreas como medicina, energia e meio ambiente, proporcionando soluções inovadoras para desafios globais.</p>
-                <p>À medida que a sinergia entre computação quântica e inteligência artificial se aprofunda, a expectativa é de que sejam alcançados avanços verdadeiramente revolucionários em todos os aspectos da vida humana. Essa colaboração entre duas áreas tão promissoras da tecnologia não apenas promete impulsionar a inovação, mas também tem o potencial de transformar fundamentalmente a maneira como vivemos e interagimos com o mundo ao nosso redor. Em um mundo onde a quantidade de dados gerados continua a crescer exponencialmente, a capacidade dos sistemas baseados em IA de processar e interpretar essas informações de maneira rápida e precisa é crucial. A computação quântica oferece o impulso adicional, proporcionando um poder de processamento sem precedentes para lidar com conjuntos de dados cada vez maiores e mais complexos.</p>
-            </div>
-        </div>
+  <div class="section">
+    <h2>Inovação nas Baterias</h2>
+    <p>Inovação e Cuidados com as Baterias é um tópico de discussão sobre a atual produção e estágios de desenvolvimento das baterias para dispositivos móveis. Os cuidados com carregadores portáteis, carregadores turbo e muito mais!</p>
+    <button onclick="toggleModal('modal2')">Visualizar</button>
+    <div id="modal2" class="modal">
+      <span class="close" onclick="toggleModal('modal2')">&times;</span>
+      <img src="https://img.freepik.com/vetores-premium/o-andamento-do-carregamento-da-bateria-da-vista-superior-do-telefone_78072-759.jpg" alt="Descrição da imagem">
+      <button onclick="window.open('https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing')">Acessar</button>
     </div>
-    <div class="footer">2024</div>
-    <script>
-        function toggleModal(modalId) {
-            var modal = document.getElementById(modalId);
-            var btn = document.querySelector(`button[data-modal="${modalId}"]`);
+  </div>
 
-            if (modal.style.display === "none" || modal.style.display === "") {
-                modal.style.display = "block";
-                btn.textContent = "Fechar";
-            } else {
-                modal.style.display = "none";
-                btn.textContent = "Ler mais";
-            }
-        }
-    </script>
+  <div class="section">
+    <h2>Ficção vs Realidade</h2>
+    <p>Ficção vs Realidade discute o limite entre a ficção, probabilidades e realizações tecnológicas sob a ótica real da ciência, física, química e biologia. O que é possível, imaginável e realizável.</p>
+    <button onclick="toggleModal('modal3')">Visualizar</button>
+    <div id="modal3" class="modal">
+      <span class="close" onclick="toggleModal('modal3')">&times;</span>
+      <img src="https://i.pinimg.com/564x/2d/58/ec/2d58ec7e1db96b865a93255798faf9c2.jpg" alt="Descrição da imagem">
+      <button onclick="window.open('https://drive.google.com/file/d/1rmuFTjG-qq_aFbjG83bnDaxYWWz_iWlt/view?usp=sharing')">Acessar</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Patologias Tecnológicas</h2>
+    <p>Patologias Tecnológicas discute as doenças associadas com tecnologia e sua influência na sociedade atual, seus impactos, características e como podemos minimizar seus efeitos.</p>
+    <button onclick="toggleModal('modal4')">Visualizar</button>
+    <div id="modal4" class="modal">
+      <span class="close" onclick="toggleModal('modal4')">&times;</span>
+      <img src="https://i.pinimg.com/564x/f8/ce/4f/f8ce4f16897ac353a9a9c4e5ac00c6d0.jpg" alt="Descrição da imagem">
+      <button onclick="window.open('https://drive.google.com/file/d/1QYaM7eLm4aeJCZJB2YDArLJMzpKzdwNV/view?usp=sharing')">Acessar</button>
+    </div>
+  </div>
+  <!-- Outras seções -->
+</div>
+
+<div class="footer">
+    <p>2024</p>
+</div>
+
+<script>
+function toggleModal(id) {
+  var modal = document.getElementById(id);
+  modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+}
+
+window.onload = function() {
+  var cards = document.querySelectorAll('.section');
+  var modal = document.querySelector('.modal');
+  var cardWidth = cards[0].offsetWidth;
+  modal.style.width = cardWidth + 'px';
+}
+</script>
+
 </body>
 </html>

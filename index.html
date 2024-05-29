@@ -1,505 +1,514 @@
+
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Material Complementar</title>
-    <style>
-        body {
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            margin: 0;
-            background: linear-gradient(to right, #ADD8E6, #FFFFFF, #ADD8E6);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Material Complementar</title>
+<style>
+  body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: linear-gradient(to right, #ADD8E6, #FFFFFF, #ADD8E6);
+  }
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 5px;
-            text-align: center;
-        }
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+  }
 
-        /* Estilos para a barra de busca */
-        .search-wrapper {
-            display: flex;
-            justify-content: center;
-        }
+  .search-wrapper {
+    display: flex;
+    justify-content: center;
+  }
 
-        .search-container {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
+  .search-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
 
-        .search-input {
-            padding: 10px;
-            font-size: 16px;
-            border: 2px solid #ccc;
-            border-radius: 20px 0 0 20px;
-            outline: none;
-        }
+  .search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+  }
 
-        .search-button {
-            background-color: #333;
-            border: none;
-            border-radius: 0 20px 20px 0;
-            width: 100px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 0 10px;
-            transition: background 0.3s, transform 0.3s;
-        }
+  .search-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 10px;
+    transition: background 0.3s, transform 0.3s;
+  }
 
-        .search-button:hover {
-            background-color: #555;
-            transform: scale(1.05);
-        }
+  .search-button:hover {
+    background-color: #555;
+    transform: scale(1.05);
+  }
 
-        .lupa-icon {
-            fill: white;
-        }
+  .lupa-icon {
+    fill: white;
+  }
 
-        /* Estilos para a tabela de busca */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
 
-        th,
-        td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
 
-        th {
-            background-color: #333;
-            color: white;
-        }
+  th {
+    background-color: #333;
+    color: white;
+  }
 
-        td a {
-            color: black;
-            text-decoration: none;
-        }
+  td a {
+    color: black;
+    text-decoration: none;
+  }
 
-        td a:hover {
-            text-decoration: none;
-        }
+  td a:hover {
+    text-decoration: none;
+  }
 
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 
-        .section {
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+  .section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
 
-        .section img {
-            width: 120px;
-            height: 120px;
-            margin-right: 20px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+  .section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
 
-        .section-content {
-            flex-grow: 1;
-        }
+  .section img {
+    width: 130px;
+    height: 130px;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
 
-        h2 {
-            color: #333;
-            margin: 0 0 10px 0;
-        }
+  .section-content {
+    flex-grow: 1;
+  }
 
-        p {
-            color: #666;
-            text-align: justify;
-        }
+  h2 {
+    color: #333;
+    margin: 0 0 10px 0;
+  }
 
-        .visualize-button-container {
-            display: flex;
-            justify-content: flex-start;
-            margin-top: 10px;
-        }
+  p {
+    color: #666;
+    text-align: justify;
+  }
 
-        /* Estilos dos botões */
-        .button-container button,
-        .visualize-button-container button,
-        .search-button,
-        .search-results-button {
-            background: linear-gradient(to bottom, #444444, #666666);
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
+  .visualize-button-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
 
-        .button-container button:hover,
-        .visualize-button-container button:hover,
-        .search-button:hover,
-        .search-results-button:hover {
-            background: linear-gradient(to bottom, #333333, #555555);
-        }
+  .button-container button, .visualize-button-container button, .search-button {
+    background: linear-gradient(to bottom, #444444, #666666);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
 
-        /* Centraliza os botões dentro do modal e mantém um espaço entre eles */
-        .modal .button-container {
-            display: flex;
-            justify-content: center;
-        }
+  .button-container button:hover, .visualize-button-container button:hover, .search-button:hover {
+    background: linear-gradient(to bottom, #333333, #555555);
+  }
 
-        .modal .button-container button {
-            margin-right: 10px;
-        }
+  .modal .button-container {
+    display: flex;
+    justify-content: center;
+  }
 
-        .modal .button-container button:last-child {
-            margin-right: 0;
-        }
+  .modal .button-container button {
+    margin-right: 10px;
+  }
 
-        .modal {
-            display: none;
-            position: absolute;
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            text-align: center;
-            z-index: 1000;
-        }
+  .modal .button-container button:last-child {
+    margin-right: 0;
+  }
 
-        .modal.show {
-            display: block;
-            opacity: 1;
-        }
+  .modal {
+    display: none;
+    position: fixed;
+    width: calc(100% - 40px);
+    max-width: 757px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }
 
-        #searchModal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+  .modal.show {
+    display: block;
+    opacity: 1;
+  }
 
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 1px;
-            font-size: 24px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-        .footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            padding: 10px;
-            background-color: transparent;
-            color: #070707;
-            font-weight: bold;
-            position: relative;
-            bottom: 0;
-        }
+  .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    color: #070707;
+    font-weight: bold;
+    position: relative;
+    bottom: 0;
+  }
 
-        @media only screen and (max-width: 768px) {
-            /* Reduz o tamanho da fonte para cabeçalhos e parágrafos */
-            h2,
-            p {
-                font-size: 14px;
-            }
+  @media only screen and (max-width: 768px) {
+    h2, p {
+      font-size: 14px;
+    }
 
-            /* Ajusta o padding dos contêineres para dar mais espaço */
-            .container,
-            .section {
-                padding: 10px;
-            }
+    .container, .section {
+      padding: 10px;
+    }
 
-            /* Centraliza os elementos dentro da barra de busca e ajusta o layout */
-            .search-container {
-                flex-direction: column;
-                align-items: center;
-            }
+    .search-container {
+      flex-direction: column;
+      align-items: center;
+    }
 
-            .search-input,
-            .search-button {
-                width: 100%;
-                border-radius: 5px;
-                margin: 5px 0;
-            }
+    .search-input, .search-button {
+      width: 100%;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
 
-            /* Ajusta o tamanho e o espaçamento dos botões */
-            button {
-                padding: 8px 15px;
-                font-size: 14px;
-            }
+    button {
+      padding: 8px 15px;
+      font-size: 14px;
+    }
 
-            /* Ajusta o layout dos itens de seção para evitar aperto */
-            .section {
-                flex-direction: column;
-                align-items: center;
-            }
+    .section {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
 
-            .section img {
-                max-width: 100%;
-                height: auto;
-                margin-bottom: 10px;
-            }
+    .section img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+    }
 
-            /* Ajusta o footer para centralizar o texto */
-            .footer {
-                text-align: center;
-            }
+    .footer {
+      text-align: center;
+    }
 
-            /* Aumenta e centraliza o título do card */
-            .section h2 {
-                font-size: 18px;
-                text-align: center;
-            }
+    .section h2 {
+      font-size: 18px;
+      text-align: center;
+    }
 
-            /* Centraliza o botão "Visualizar" */
-            .visualize-button-container {
-                justify-content: center;
-            }
+    .visualize-button-container {
+      justify-content: center;
+    }
 
-            /* Ajustes para o modal */
-            .modal {
-                margin: 10px;
-                width: calc(100% - 20px);
-                max-width: calc(800px - 20px);
-                box-sizing: border-box;
-                left: 45%;
-                transform: translate(-50%, -50%);
-            }
+    .modal {
+      display: none;
+      position: fixed;
+      width: calc(100% - 25px);
+      max-width: calc(400px - 30px);
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      text-align: center;
+      top: 50px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+    }
 
-            #searchModal {
-                width: calc(100% - 20px);
-                max-width: 90%;
-                box-sizing: border-box;
-            }
-        }
-    </style>
+    .modal.show {
+      display: block;
+      opacity: 1;
+    }
+
+    .modal.show + .section {
+      margin-top: 10px;
+    }
+
+    .modal .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+</style>
 </head>
-
 <body>
-    <!-- Novo modal de busca -->
-    <div id="searchModal" class="modal">
+  <!-- Novo modal de busca -->
+  <div id="searchModal" class="modal">
+    <span class="close-btn">&times;</span>
+    <div class="modal-content">
+      <h2>Resultados da Busca</h2>
+      <div id="searchResults">
+        <!-- Os resultados da busca serão exibidos aqui -->
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="search-wrapper">
+      <form id="searchForm" class="search-container">
+        <input type="text" placeholder="Digite o que procura..." name="search" class="search-input">
+        <button type="submit" class="search-button">Buscar</button>
+      </form>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Temática 3 -->
+    <div class="section">
+        <img src="https://www.itexperts.com.br/wp-content/uploads/2022/11/25120303/kids.jpg" alt="Descrição da imagem da Temática 3">
+        <div class="section-content">
+          <h2>Sistema Integrado de Tecnologias Cotidianas</h2>
+          <p>O avanço tecnológico impacta profundamente diversos aspectos da vida cotidiana, desde a revolução digital até inovações em setores tradicionais, refletindo uma interseção cada vez mais evidente entre tecnologia e sociedade. As tecnologias de ponta transformam indústrias como agricultura, saúde e finanças, evidenciando sua adaptabilidade e relevância em múltiplos contextos. Confira uma compilação de tecnologias que estão em nosso dia a dia.</p>
+          <div class="visualize-button-container">
+            <button class="modal-button" data-target="modal3">Visualizar</button>
+          </div>
+        </div>
+      </div>
+      <div id="modal3" class="modal">
         <span class="close-btn">&times;</span>
-        <div class="modal-content">
-            <h2>Resultados da Busca</h2>
-            <div id="searchResults">
-                <!-- Os resultados da busca serão exibidos aqui -->
-            </div>
+        <div class="button-container">
+          <button onclick="window.open('https://ravellsl.github.io/material-complementar-sistema-integrado-tecnologias-coditianas/', '_blank')">Acessar</button>
+          <button onclick="window.open('https://drive.google.com/file/d/1ElZ_IOFyRyaiYvkKc0RYsDpZ_jJWgbWk/view?usp=sharing', '_blank')">Download</button>
         </div>
+      </div>
+
+    <!-- Temática 2 -->
+    <div class="section">
+      <img src="https://www.ccnnoticias.com.br/images/Dindara_-_Algoritmo_5.jpg" alt="Descrição da imagem da Temática 1">
+      <div class="section-content">
+        <h2>Colonização da Consciência</h2>
+        <p>Colonização da Consciência, Redes Sociais, Big Tech's e Metaverso discute as formas de controle do pensamento humano a partir da perspectiva de manipulação de algoritmos.</p>
+        <div class="visualize-button-container">
+          <button class="modal-button" data-target="modal1">Visualizar</button>
+        </div>
+      </div>
+    </div>
+    <div id="modal1" class="modal">
+      <span class="close-btn">&times;</span>
+      <div class="button-container">
+        <button onclick="window.open('https://ravellsl.github.io/material-complementar-colonizacao-consciencia/', '_blank')">Acessar</button>
+        <button onclick="window.open('https://drive.google.com/file/d/1o0sWeuR_0OYdpdScpXx6e7LpXlen_J80/view?usp=sharing', '_blank')">Download</button>
+      </div>
     </div>
 
-    <header>
-        <div class="search-wrapper">
-            <form id="searchForm" class="search-container">
-                <input type="text" placeholder="Digite o que procura..." name="search" class="search-input">
-                <button type="submit" class="search-button">Buscar</button>
-            </form>
+    <!-- Temática 1 -->
+    <div class="section">
+      <img src="https://img.freepik.com/vetores-premium/o-andamento-do-carregamento-da-bateria-da-vista-superior-do-telefone_78072-759.jpg" alt="Descrição da imagem da Temática 2">
+      <div class="section-content">
+        <h2>Inovação nas Baterias</h2>
+        <p>Inovação e Cuidados com as Baterias é um tópico de discussão sobre a atual produção e estágios de desenvolvimento das baterias para dispositivos móveis. Os cuidados com carregadores portáteis, carregadores turbo e muito mais!</p>
+        <div class="visualize-button-container">
+          <button class="modal-button" data-target="modal2">Visualizar</button>
         </div>
-    </header>
-
-    <div class="container">
-        <!-- Temática 3 -->
-        <div class="section">
-            <img src="https://www.itexperts.com.br/wp-content/uploads/2022/11/25120303/kids.jpg" alt="Descrição da imagem da Temática 3">
-            <div class="section-content">
-                <h2>Sistema Integrado de Tecnologias Cotidianas</h2>
-                <p>O avanço tecnológico impacta profundamente diversos aspectos da vida cotidiana, desde a revolução digital até inovações em setores tradicionais, refletindo uma interseção cada vez mais evidente entre tecnologia e sociedade. As tecnologias de ponta transformam indústrias como agricultura, saúde e finanças, evidenciando sua adaptabilidade e relevância em múltiplos contextos. Confira uma compilação de tecnologias que estão em nosso dia a dia.</p>
-                <div class="visualize-button-container">
-                    <button class="modal-button" data-target="modal3">Visualizar</button>
-                </div>
-            </div>
-        </div>
-        <div id="modal3" class="modal">
-            <span class="close-btn">&times;</span>
-            <div class="button-container">
-                <button onclick="window.open('https://ravellsl.github.io/material-complementar-sistema-integrado-tecnologias-coditianas/', '_blank')">Acessar</button>
-                <button onclick="window.open('https://drive.google.com/file/d/1ElZ_IOFyRyaiYvkKc0RYsDpZ_jJWgbWk/view?usp=sharing', '_blank')">Download</button>
-            </div>
-        </div>
-
-        <!-- Temática 2 -->
-        <div class="section">
-            <img src="https://www.ccnnoticias.com.br/images/Dindara_-_Algoritmo_5.jpg" alt="Descrição da imagem da Temática 1">
-            <div class="section-content">
-                <h2>Colonização da Consciência</h2>
-                <p>Colonização da Consciência, Redes Sociais, Big Tech's e Metaverso discute as formas de controle do pensamento humano a partir da perspectiva de manipulação de algoritmos.</p>
-                <div class="visualize-button-container">
-                    <button class="modal-button" data-target="modal1">Visualizar</button>
-                </div>
-            </div>
-        </div>
-        <div id="modal1" class="modal">
-            <span class="close-btn">&times;</span>
-            <div class="button-container">
-                <button onclick="window.open('https://ravellsl.github.io/material-complementar-colonizacao-consciencia/', '_blank')">Acessar</button>
-                <button onclick="window.open('https://drive.google.com/file/d/1o0sWeuR_0OYdpdScpXx6e7LpXlen_J80/view?usp=sharing', '_blank')">Download</button>
-            </div>
-        </div>
-
-        <!-- Temática 1 -->
-        <div class="section">
-            <img src="https://img.freepik.com/vetores-premium/o-andamento-do-carregamento-da-bateria-da-vista-superior-do-telefone_78072-759.jpg" alt="Descrição da imagem da Temática 2">
-            <div class="section-content">
-                <h2>Inovação nas Baterias</h2>
-                <p>Inovação e Cuidados com as Baterias é um tópico de discussão sobre a atual produção e estágios de desenvolvimento das baterias para dispositivos móveis. Os cuidados com carregadores portáteis, carregadores turbo e muito mais!</p>
-                <div class="visualize-button-container">
-                    <button class="modal-button" data-target="modal2">Visualizar</button>
-                </div>
-            </div>
-        </div>
-        <div id="modal2" class="modal">
-            <span class="close-btn">&times;</span>
-            <div class="button-container">
-                <button onclick="window.open('https://ravellsl.github.io/material-complementar-inovacao-baterias/', '_blank')">Acessar</button>
-                <button onclick="window.open('https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing', '_blank')">Download</button>
-            </div>
-        </div>
+      </div>
+    </div>
+    <div id="modal2" class="modal">
+      <span class="close-btn">&times;</span>
+      <div class="button-container">
+        <button onclick="window.open('https://ravellsl.github.io/material-complementar-inovacao-baterias/', '_blank')">Acessar</button>
+        <button onclick="window.open('https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing', '_blank')">Download</button>
+      </div>
     </div>
 
-    <div class="footer">
-        <p>2024</p>
-    </div>
+    
+  </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const buttons = document.querySelectorAll('.modal-button');
-            const closeButtons = document.querySelectorAll('.close-btn');
+  <div class="footer">
+    <p>2024</p>
+  </div>
 
-            buttons.forEach(button => {
-                button.addEventListener('click', function () {
-                    const target = this.getAttribute('data-target');
-                    const modal = document.getElementById(target);
-                    const buttonRect = this.getBoundingClientRect();
-                    modal.style.top = `${buttonRect.top + window.scrollY}px`;
-                    modal.style.left = `${buttonRect.left + window.scrollX}px`;
-                    modal.classList.add('show');
-                });
-            });
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const buttons = document.querySelectorAll('.modal-button');
+      const closeButtons = document.querySelectorAll('.close-btn');
 
-            closeButtons.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const modal = this.closest('.modal');
-                    modal.classList.remove('show');
-                });
-            });
+      buttons.forEach(button => {
+        button.addEventListener('click', function() {
+          const target = this.getAttribute('data-target');
+          const modal = document.getElementById(target);
+          const buttonRect = this.getBoundingClientRect();
 
-            window.addEventListener('click', function (event) {
-                const modals = document.querySelectorAll('.modal.show');
-                modals.forEach(modal => {
-                    if (event.target === modal) {
-                        modal.classList.remove('show');
-                    }
-                });
-            });
-
-            const searchForm = document.getElementById('searchForm');
-            const searchModal = document.getElementById('searchModal');
-            const searchResultsContainer = document.getElementById('searchResults');
-            const searchInput = document.querySelector('.search-input');
-            const sections = document.querySelectorAll('.section');
-
-            searchForm.addEventListener('submit', function (event) {
-                event.preventDefault();
-                const searchTerm = searchInput.value.trim().toLowerCase();
-                const searchResults = [];
-
-                sections.forEach(section => {
-                    const title = section.querySelector('h2').textContent.toLowerCase();
-                    const description = section.querySelector('p').textContent.toLowerCase();
-                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                        const link = section.querySelector('.modal-button').getAttribute('data-target');
-                        searchResults.push({ title: title, link: link });
-                    }
-                });
-
-                renderSearchResults(searchResults);
-                searchModal.classList.add('show');
-            });
-
-            const renderSearchResults = function (results) {
-                searchResultsContainer.innerHTML = '';
-
-                if (results.length === 0) {
-                    const noResultsMessage = document.createElement('p');
-                    noResultsMessage.textContent = 'Nenhum resultado encontrado.';
-                    searchResultsContainer.appendChild(noResultsMessage);
-                    return;
-                }
-
-                const table = document.createElement('table');
-                const tableHeader = document.createElement('thead');
-                const headerRow = document.createElement('tr');
-                const titleHeader = document.createElement('th');
-                titleHeader.textContent = 'Título da Temática';
-                const linkHeader = document.createElement('th');
-                linkHeader.textContent = 'Abrir';
-                headerRow.appendChild(titleHeader);
-                headerRow.appendChild(linkHeader);
-                tableHeader.appendChild(headerRow);
-                table.appendChild(tableHeader);
-
-                const tableBody = document.createElement('tbody');
-                results.forEach(result => {
-                    const row = document.createElement('tr');
-                    const titleCell = document.createElement('td');
-                    titleCell.textContent = result.title;
-                    const linkCell = document.createElement('td');
-                    const linkButton = document.createElement('button');
-                    linkButton.textContent = 'Abrir';
-                    linkButton.classList.add('search-results-button');
-                    linkButton.addEventListener('click', function () {
-                        openContentWindow(result.title, result.link);
-                    });
-                    linkCell.appendChild(linkButton);
-                    row.appendChild(titleCell);
-                    row.appendChild(linkCell);
-                    tableBody.appendChild(row);
-                });
-                table.appendChild(tableBody);
-                searchResultsContainer.appendChild(table);
-            };
-
-            const openContentWindow = function (title, link) {
-                const modal = document.getElementById(link);
-                modal.classList.add('show');
-                searchModal.classList.remove('show');
-            };
-
-            const searchCloseBtn = searchModal.querySelector('.close-btn');
-            searchCloseBtn.addEventListener('click', function () {
-                searchModal.classList.remove('show');
-            });
-
-            window.addEventListener('click', function (event) {
-                if (event.target === searchModal) {
-                    searchModal.classList.remove('show');
-                }
-            });
+          modal.classList.add('show');
+          modal.style.top = `${buttonRect.bottom + window.scrollY}px`;
         });
-    </script>
-</body>
+      });
 
+      closeButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const modal = this.closest('.modal');
+          modal.classList.remove('show');
+        });
+      });
+
+      window.addEventListener('click', function(event) {
+        const modals = document.querySelectorAll('.modal.show');
+        modals.forEach(modal => {
+          if (event.target === modal) {
+            modal.classList.remove('show');
+          }
+        });
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchForm = document.getElementById('searchForm');
+      const searchModal = document.getElementById('searchModal');
+      const searchResultsContainer = document.getElementById('searchResults');
+      const searchInput = document.querySelector('.search-input');
+      const sections = document.querySelectorAll('.section');
+
+      searchForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        const searchResults = [];
+
+        sections.forEach(section => {
+          const title = section.querySelector('h2').textContent.toLowerCase();
+          const description = section.querySelector('p').textContent.toLowerCase();
+          if (title.includes(searchTerm) || description.includes(searchTerm)) {
+            const link = section.querySelector('.modal-button').getAttribute('data-target');
+            searchResults.push({ title: title, link: link });
+          }
+        });
+
+        renderSearchResults(searchResults);
+        searchModal.classList.add('show');
+      });
+
+      const renderSearchResults = function(results) {
+        searchResultsContainer.innerHTML = '';
+
+        if (results.length === 0) {
+          const noResultsMessage = document.createElement('p');
+          noResultsMessage.textContent = 'Nenhum resultado encontrado.';
+          searchResultsContainer.appendChild(noResultsMessage);
+          return;
+        }
+
+        const table = document.createElement('table');
+        const tableHeader = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+        const titleHeader = document.createElement('th');
+        titleHeader.textContent = 'Título da Temática';
+        const linkHeader = document.createElement('th');
+        linkHeader.textContent = 'Abrir';
+        headerRow.appendChild(titleHeader);
+        headerRow.appendChild(linkHeader);
+        tableHeader.appendChild(headerRow);
+        table.appendChild(tableHeader);
+
+        const tableBody = document.createElement('tbody');
+        results.forEach(result => {
+          const row = document.createElement('tr');
+          const titleCell = document.createElement('td');
+          titleCell.textContent = result.title;
+          const linkCell = document.createElement('td');
+          const linkButton = document.createElement('button');
+          linkButton.textContent = 'Abrir';
+          linkButton.addEventListener('click', function() {
+            openContentWindow(result.title, result.link);
+          });
+          linkCell.appendChild(linkButton);
+          row.appendChild(titleCell);
+          row.appendChild(linkCell);
+          tableBody.appendChild(row);
+        });
+        table.appendChild(tableBody);
+
+        searchResultsContainer.appendChild(table);
+      };
+
+      const openContentWindow = function(title, link) {
+        const modal = document.getElementById(link);
+        const button = document.querySelector(`[data-target="${link}"]`);
+        const buttonRect = button.getBoundingClientRect();
+
+        modal.classList.add('show');
+        modal.style.top = `${buttonRect.bottom + window.scrollY}px`;
+        searchModal.classList.remove('show');
+      };
+
+      const searchCloseBtn = searchModal.querySelector('.close-btn');
+      searchCloseBtn.addEventListener('click', function() {
+        searchModal.classList.remove('show');
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target === searchModal) {
+          searchModal.classList.remove('show');
+        }
+      });
+    });
+  </script>
+</body>
 </html>

@@ -5,336 +5,339 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Material Complementar</title>
 <style>
+      body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  overflow-x: hidden; /* Para eliminar a barra de rolagem horizontal */
+}
+
+.container {
+  flex: 0; /* Isso garante que a .container ocupe o espaço disponível */
+  max-width: 1200px;  
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9); /* Cor de fundo clara */
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+}
+
+header {
+  background-color: #1f1f1f;
+  color: #00e5ff;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #00e5ff;
+}
+
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid #00e5ff;
+  border-radius: 25px 0 0 25px;
+  outline: none;
+  background-color: #2c3e50;
+  color: #00e5ff;
+}
+
+.search-input::placeholder {
+  color: #ffffff; /* Cor branca para o texto do placeholder */
+}
+
+.search-button {
+  background-color: #00e5ff;
+  color: #1f1f1f;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0 10px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.search-button:hover {
+  background-color: #00a3cc;
+  transform: scale(1.05);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: rgba(44, 62, 80, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 229, 255, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.section:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 229, 255, 0.5);
+}
+
+.section img {
+  width: auto;
+  height: 150px;
+  margin-bottom: 20px;
+  border-radius: 100px;
+  border: 3px solid #00e5ff;
+  object-fit: cover;
+}
+
+.section-content {
+  flex-grow: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+h2 {
+  color: #00e5ff;
+  margin: 0 0 10px 0;
+  text-align: center; /* Centraliza os títulos */
+}
+
+.spacer {
+  height: 30px; /* Ajuste este valor conforme necessário */
+}
+
+p {
+  color: #e0e0e0;
+  text-align: justify;
+  margin: 0;
+  padding: 20px;
+  flex-grow: 1; /* Para que o parágrafo ocupe o espaço disponível */
+}
+
+.visualize-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.button-container button, .visualize-button-container button, .search-button {
+  background: linear-gradient(to bottom, #00e5ff, #007acc);
+  color: #1f1f1f;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.button-container button:hover, .visualize-button-container button:hover, .search-button:hover {
+  background: linear-gradient(to bottom, #00a3cc, #007acc);
+}
+
+.modal .button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.modal .button-container button {
+  margin-right: 10px;
+}
+
+.modal .button-container button:last-child {
+  margin-right: 0;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  width: 80%;
+  max-width: 800px;
+  background: rgba(44, 62, 80, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 229, 255, 0.6);
+  padding: 20px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.7);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.modal.show {
+  display: block;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #00e5ff;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1px;
+  background-color: #1f1f1f;
+  color: #00e5ff;
+  font-weight: bold;
+  border-top: 2px solid #00e5ff;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: auto; /* Garante que o rodapé esteja na parte inferior */
+}
+
+@media only screen and (max-width: 600px) {
   body {
-    font-family: 'Orbitron', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-    color: #fff;
-    overflow-x: hidden; /* Para eliminar a barra de rolagem horizontal */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    font-size: 14px;
   }
 
   header {
-    background-color: #1f1f1f;
-    color: #00e5ff;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
-    border-bottom: 2px solid #00e5ff;
   }
 
   .search-wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+    flex-direction: column;
+    padding: 10px;
   }
 
   .search-container {
-    display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .search-input {
-    padding: 15px;
-    font-size: 16px;
-    border: 2px solid #00e5ff;
-    border-radius: 25px 0 0 25px;
-    outline: none;
-    background-color: #2c3e50;
-    color: #00e5ff;
+    border-radius: 10px;
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
   }
 
   .search-button {
-    background-color: #00e5ff;
-    color: #1f1f1f;
-    border: none;
-    border-radius: 0 25px 25px 0;
-    width: 100px;
-    height: 50px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 0 10px;
-    transition: background 0.3s, transform 0.3s;
-  }
-
-  .search-button:hover {
-    background-color: #00a3cc;
-    transform: scale(1.05);
+    width: 100%;
+    border-radius: 10px;
   }
 
   .container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
-    background: rgba(15, 32, 39, 0.9);
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
-    flex: 1;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    padding: 10px;
   }
 
   .section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background: rgba(44, 62, 80, 0.9);
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 229, 255, 0.3);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-
-  .section:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 229, 255, 0.5);
+    padding: 10px;
   }
 
   .section img {
-    width: auto;
-    height: 150px;
-    margin-bottom: 20px;
-    border-radius: 100px;
-    border: 3px solid #00e5ff;
-    object-fit: cover;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
   }
 
   .section-content {
-    flex-grow: 1;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
   }
 
   h2 {
-    color: #00e5ff;
-    margin: 0 0 10px 0;
-    text-align: center; /* Centraliza os títulos */
+    font-size: 18px;
   }
 
   .spacer {
-    height: 30px; /* Ajuste este valor conforme necessário */
+    height: 20px; /* Ajuste este valor conforme necessário */
   }
 
   p {
-    color: #e0e0e0;
-    text-align: justify;
-    margin: 0;
-    padding: 20px;
-    flex-grow: 1; /* Para que o parágrafo ocupe o espaço disponível */
+    font-size: 14px;
   }
 
   .visualize-button-container {
-    display: flex;
     justify-content: center;
-    margin-top: 10px;
-  }
-
-  .button-container button, .visualize-button-container button, .search-button {
-    background: linear-gradient(to bottom, #00e5ff, #007acc);
-    color: #1f1f1f;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
-  }
-
-  .button-container button:hover, .visualize-button-container button:hover, .search-button:hover {
-    background: linear-gradient(to bottom, #00a3cc, #007acc);
-  }
-
-  .modal .button-container {
-    display: flex;
-    justify-content: center;
-  }
-
-  .modal .button-container button {
-    margin-right: 10px;
-  }
-
-  .modal .button-container button:last-child {
-    margin-right: 0;
   }
 
   .modal {
-    display: none;
-    position: fixed;
-    width: 80%;
-    max-width: 800px;
-    background: rgba(44, 62, 80, 0.95);
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 229, 255, 0.6);
-    padding: 20px;
-    text-align: center;
-    top: 50%;
+    width: 90%;
+    padding: 10px;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.7);
-    opacity: 0;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    z-index: 1000;
-  }
-
-  .modal.show {
-    display: block;
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-  }
-
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #00e5ff;
+    transform: translateX(-50%) scale(0.7);
   }
 
   .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-    background-color: #1f1f1f;
-    color: #00e5ff;
-    font-weight: bold;
-    border-top: 2px solid #00e5ff;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    flex-direction: column;
     text-align: center;
+    padding: 10px;
+    position: relative;
   }
+}
 
-  @media only screen and (max-width: 600px) {
-    body {
-      font-size: 14px;
-    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
 
-    header {
-      padding: 10px;
-      text-align: center;
-    }
+th, td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #00e5ff;
+}
 
-    .search-wrapper {
-      flex-direction: column;
-      padding: 10px;
-    }
+th {
+  background-color: #00e5ff;
+  color: #1f1f1f;
+}
 
-    .search-container {
-      flex-direction: column;
-      align-items: stretch;
-    }
+td {
+  background-color: rgba(44, 62, 80, 0.9);
+  color: #00e5ff;
+}
 
-    .search-input {
-      border-radius: 10px;
-      width: calc(100% - 20px);
-      margin-bottom: 10px;
-    }
+td button {
+  background: linear-gradient(to bottom, #00e5ff, #007acc);
+  color: #1f1f1f;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
 
-    .search-button {
-      width: 100%;
-      border-radius: 10px;
-    }
+td button:hover {
+  background: linear-gradient(to bottom, #00a3cc, #007acc);
+}
 
-    .container {
-      padding: 10px;
-    }
-
-    .section {
-      padding: 10px;
-    }
-
-    .section img {
-      width: 120px;
-      height: 120px;
-      margin-bottom: 10px;
-    }
-
-    .section-content {
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 18px;
-    }
-
-    .spacer {
-      height: 20px; /* Ajuste este valor conforme necessário */
-    }
-
-    p {
-      font-size: 14px;
-    }
-
-    .visualize-button-container {
-      justify-content: center;
-    }
-
-    .modal {
-      width: 90%;
-      padding: 10px;
-      left: 50%;
-      transform: translateX(-50%) scale(0.7);
-    }
-
-    .footer {
-      flex-direction: column;
-      text-align: center;
-      padding: 10px;
-      position: relative;
-    }
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-
-  th, td {
-    padding: 15px;
-    text-align: center;
-    border: 1px solid #00e5ff;
-  }
-
-  th {
-    background-color: #00e5ff;
-    color: #1f1f1f;
-  }
-
-  td {
-    background-color: rgba(44, 62, 80, 0.9);
-    color: #00e5ff;
-  }
-
-  td button {
-    background: linear-gradient(to bottom, #00e5ff, #007acc);
-    color: #1f1f1f;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
-  }
-
-  td button:hover {
-    background: linear-gradient(to bottom, #00a3cc, #007acc);
-  }
 </style>
 </head>
 <body>
@@ -423,7 +426,7 @@
   </div>
 
   <div class="footer">
-    <p>2024</p>
+    <p></p>
   </div>
 
   <script>
@@ -471,7 +474,7 @@
           const description = section.querySelector('p').textContent.toLowerCase();
           if (title.includes(searchTerm) || description.includes(searchTerm)) {
             const link = section.querySelector('.modal-button').getAttribute('data-target');
-            searchResults.push({ title: title, link: link });
+            searchResults.push({ title: title, link: link, section: section });
           }
         });
 
@@ -510,7 +513,7 @@
           const linkButton = document.createElement('button');
           linkButton.textContent = 'Abrir';
           linkButton.addEventListener('click', function() {
-            openContentWindow(result.title, result.link);
+            openContentWindow(result.section, result.link);
           });
           linkCell.appendChild(linkButton);
           row.appendChild(titleCell);
@@ -522,10 +525,12 @@
         searchResultsContainer.appendChild(table);
       };
 
-      const openContentWindow = function(title, link) {
+      const openContentWindow = function(section, link) {
+        section.scrollIntoView({ behavior: 'smooth' });
         const modal = document.getElementById(link);
-        const button = document.querySelector(`[data-target="${link}"]`);
-        modal.classList.add('show');
+        setTimeout(() => {
+          modal.classList.add('show');
+        }, 500); // Ajuste o tempo de atraso conforme necessário
         searchModal.classList.remove('show');
       };
 

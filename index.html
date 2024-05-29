@@ -6,44 +6,53 @@
 <title>Material Complementar</title>
 <style>
   body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Orbitron', sans-serif;
     margin: 0;
-    background: linear-gradient(to right, #ADD8E6, #FFFFFF, #ADD8E6);
+    padding: 0;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    overflow-x: hidden; /* Para eliminar a barra de rolagem horizontal */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 
   header {
-    background-color: #333;
-    color: #fff;
-    padding: 5px;
+    background-color: #1f1f1f;
+    color: #00e5ff;
+    padding: 20px;
     text-align: center;
+    border-bottom: 2px solid #00e5ff;
   }
 
   .search-wrapper {
     display: flex;
     justify-content: center;
+    padding: 20px;
   }
 
   .search-container {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
   }
 
   .search-input {
-    padding: 10px;
+    padding: 15px;
     font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 20px 0 0 20px;
+    border: 2px solid #00e5ff;
+    border-radius: 25px 0 0 25px;
     outline: none;
+    background-color: #2c3e50;
+    color: #00e5ff;
   }
 
   .search-button {
-    background-color: #333;
-    color: white;
+    background-color: #00e5ff;
+    color: #1f1f1f;
     border: none;
-    border-radius: 0 20px 20px 0;
+    border-radius: 0 25px 25px 0;
     width: 100px;
-    height: 40px;
+    height: 50px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -56,96 +65,87 @@
   }
 
   .search-button:hover {
-    background-color: #555;
+    background-color: #00a3cc;
     transform: scale(1.05);
   }
 
-  .lupa-icon {
-    fill: white;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-
-  th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-  }
-
-  th {
-    background-color: #333;
-    color: white;
-  }
-
-  td a {
-    color: black;
-    text-decoration: none;
-  }
-
-  td a:hover {
-    text-decoration: none;
-  }
-
   .container {
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 1200px;
+    margin: 40px auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba(15, 32, 39, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+    flex: 1;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
   }
 
   .section {
-    position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
     padding: 20px;
-    margin-bottom: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: rgba(44, 62, 80, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 229, 255, 0.3);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
 
   .section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 229, 255, 0.5);
   }
 
   .section img {
-    width: 130px;
-    height: 130px;
-    margin-right: 20px;
-    border-radius: 50%;
+    width: auto;
+    height: 150px;
+    margin-bottom: 20px;
+    border-radius: 100px;
+    border: 3px solid #00e5ff;
+    object-fit: cover;
   }
 
   .section-content {
     flex-grow: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
 
   h2 {
-    color: #333;
+    color: #00e5ff;
     margin: 0 0 10px 0;
+    text-align: center; /* Centraliza os títulos */
+  }
+
+  .spacer {
+    height: 30px; /* Ajuste este valor conforme necessário */
   }
 
   p {
-    color: #666;
+    color: #e0e0e0;
     text-align: justify;
+    margin: 0;
+    padding: 20px;
+    flex-grow: 1; /* Para que o parágrafo ocupe o espaço disponível */
   }
 
   .visualize-button-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     margin-top: 10px;
   }
 
   .button-container button, .visualize-button-container button, .search-button {
-    background: linear-gradient(to bottom, #444444, #666666);
-    color: #fff;
+    background: linear-gradient(to bottom, #00e5ff, #007acc);
+    color: #1f1f1f;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -154,7 +154,7 @@
   }
 
   .button-container button:hover, .visualize-button-container button:hover, .search-button:hover {
-    background: linear-gradient(to bottom, #333333, #555555);
+    background: linear-gradient(to bottom, #00a3cc, #007acc);
   }
 
   .modal .button-container {
@@ -173,21 +173,24 @@
   .modal {
     display: none;
     position: fixed;
-    width: calc(100% - 40px);
-    max-width: 757px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 800px;
+    background: rgba(44, 62, 80, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 229, 255, 0.6);
     padding: 20px;
     text-align: center;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0.7);
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     z-index: 1000;
   }
 
   .modal.show {
     display: block;
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
   }
 
@@ -198,6 +201,7 @@
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
+    color: #00e5ff;
   }
 
   .footer {
@@ -205,12 +209,15 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 10px;
-    background-color: transparent;
-    color: #070707;
+    padding: 20px;
+    background-color: #1f1f1f;
+    color: #00e5ff;
     font-weight: bold;
-    position: relative;
+    border-top: 2px solid #00e5ff;
+    position: fixed;
     bottom: 0;
+    left: 0;
+    text-align: center;
   }
 
   @media only screen and (max-width: 600px) {
@@ -244,25 +251,17 @@
       border-radius: 10px;
     }
 
-    table, th, td {
-      font-size: 12px;
-    }
-
     .container {
       padding: 10px;
     }
 
     .section {
-      flex-direction: column;
-      align-items: center;
       padding: 10px;
-      margin-bottom: 10px;
     }
 
     .section img {
-      width: 100px;
-      height: 100px;
-      margin-right: 0;
+      width: 120px;
+      height: 120px;
       margin-bottom: 10px;
     }
 
@@ -272,6 +271,10 @@
 
     h2 {
       font-size: 18px;
+    }
+
+    .spacer {
+      height: 20px; /* Ajuste este valor conforme necessário */
     }
 
     p {
@@ -286,7 +289,7 @@
       width: 90%;
       padding: 10px;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) scale(0.7);
     }
 
     .footer {
@@ -294,6 +297,42 @@
       text-align: center;
       padding: 10px;
     }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #00e5ff;
+  }
+
+  th {
+    background-color: #00e5ff;
+    color: #1f1f1f;
+  }
+
+  td {
+    background-color: rgba(44, 62, 80, 0.9);
+    color: #00e5ff;
+  }
+
+  td button {
+    background: linear-gradient(to bottom, #00e5ff, #007acc);
+    color: #1f1f1f;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+
+  td button:hover {
+    background: linear-gradient(to bottom, #00a3cc, #007acc);
   }
 </style>
 </head>
@@ -319,13 +358,14 @@
   </header>
 
   <div class="container">
-
-    <!-- Temática 3 -->
-    <div class="section">
+    <div class="grid">
+      <!-- Temática 3 -->
+      <div class="section">
         <img src="https://www.itexperts.com.br/wp-content/uploads/2022/11/25120303/kids.jpg" alt="Descrição da imagem da Temática 3">
         <div class="section-content">
           <h2>Sistema Integrado de Tecnologias Cotidianas</h2>
-          <p>O avanço tecnológico impacta profundamente diversos aspectos da vida cotidiana, desde a revolução digital até inovações em setores tradicionais, refletindo uma interseção cada vez mais evidente entre tecnologia e sociedade. As tecnologias de ponta transformam indústrias como agricultura, saúde e finanças, evidenciando sua adaptabilidade e relevância em múltiplos contextos. Confira uma compilação de tecnologias que estão em nosso dia a dia.</p>
+          <div class="spacer"></div>
+          <p>O avanço tecnológico está transformando a sociedade, impactando setores como agricultura, saúde e finanças. Explore uma compilação de tecnologias que moldam nosso presente e futuro, revelando um mundo emocionante de inovação.</p>
           <div class="visualize-button-container">
             <button class="modal-button" data-target="modal3">Visualizar</button>
           </div>
@@ -339,45 +379,46 @@
         </div>
       </div>
 
-    <!-- Temática 2 -->
-    <div class="section">
-      <img src="https://www.ccnnoticias.com.br/images/Dindara_-_Algoritmo_5.jpg" alt="Descrição da imagem da Temática 1">
-      <div class="section-content">
-        <h2>Colonização da Consciência</h2>
-        <p>Colonização da Consciência, Redes Sociais, Big Tech's e Metaverso discute as formas de controle do pensamento humano a partir da perspectiva de manipulação de algoritmos.</p>
-        <div class="visualize-button-container">
-          <button class="modal-button" data-target="modal1">Visualizar</button>
+      <!-- Temática 2 -->
+      <div class="section">
+        <img src="https://www.ccnnoticias.com.br/images/Dindara_-_Algoritmo_5.jpg" alt="Descrição da imagem da Temática 1">
+        <div class="section-content">
+          <h2>Colonização da Consciência</h2>
+          <div class="spacer"></div>
+          <p><br>Colonização da Consciência, Redes Sociais, Big Tech's e Metaverso discute as formas de controle do pensamento humano a partir da perspectiva de manipulação de algoritmos.</p>
+          <div class="visualize-button-container">
+            <button class="modal-button" data-target="modal1">Visualizar</button>
+          </div>
+        </div>
+      </div>
+      <div id="modal1" class="modal">
+        <span class="close-btn">&times;</span>
+        <div class="button-container">
+          <button onclick="window.open('https://ravellsl.github.io/material-complementar-colonizacao-consciencia/', '_blank')">Acessar</button>
+          <button onclick="window.open('https://drive.google.com/file/d/1o0sWeuR_0OYdpdScpXx6e7LpXlen_J80/view?usp=sharing', '_blank')">Download</button>
+        </div>
+      </div>
+
+      <!-- Temática 1 -->
+      <div class="section">
+        <img src="https://img.freepik.com/vetores-premium/o-andamento-do-carregamento-da-bateria-da-vista-superior-do-telefone_78072-759.jpg" alt="Descrição da imagem da Temática 2">
+        <div class="section-content">
+          <h2>Inovação e Cuidados com as Baterias</h2>
+          <div class="spacer"></div>
+          <p>Inovação e Cuidados com as Baterias é um tópico de discussão sobre a atual produção e estágios de desenvolvimento das baterias para dispositivos móveis. Os cuidados com carregadores portáteis, carregadores turbo e muito mais!</p>
+          <div class="visualize-button-container">
+            <button class="modal-button" data-target="modal2">Visualizar</button>
+          </div>
+        </div>
+      </div>
+      <div id="modal2" class="modal">
+        <span class="close-btn">&times;</span>
+        <div class="button-container">
+          <button onclick="window.open('https://ravellsl.github.io/material-complementar-inovacao-baterias/', '_blank')">Acessar</button>
+          <button onclick="window.open('https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing', '_blank')">Download</button>
         </div>
       </div>
     </div>
-    <div id="modal1" class="modal">
-      <span class="close-btn">&times;</span>
-      <div class="button-container">
-        <button onclick="window.open('https://ravellsl.github.io/material-complementar-colonizacao-consciencia/', '_blank')">Acessar</button>
-        <button onclick="window.open('https://drive.google.com/file/d/1o0sWeuR_0OYdpdScpXx6e7LpXlen_J80/view?usp=sharing', '_blank')">Download</button>
-      </div>
-    </div>
-
-    <!-- Temática 1 -->
-    <div class="section">
-      <img src="https://img.freepik.com/vetores-premium/o-andamento-do-carregamento-da-bateria-da-vista-superior-do-telefone_78072-759.jpg" alt="Descrição da imagem da Temática 2">
-      <div class="section-content">
-        <h2>Inovação nas Baterias</h2>
-        <p>Inovação e Cuidados com as Baterias é um tópico de discussão sobre a atual produção e estágios de desenvolvimento das baterias para dispositivos móveis. Os cuidados com carregadores portáteis, carregadores turbo e muito mais!</p>
-        <div class="visualize-button-container">
-          <button class="modal-button" data-target="modal2">Visualizar</button>
-        </div>
-      </div>
-    </div>
-    <div id="modal2" class="modal">
-      <span class="close-btn">&times;</span>
-      <div class="button-container">
-        <button onclick="window.open('https://ravellsl.github.io/material-complementar-inovacao-baterias/', '_blank')">Acessar</button>
-        <button onclick="window.open('https://drive.google.com/file/d/1LZKuLSHnGm5e9M3kWcaHESq2KZctAtTZ/view?usp=sharing', '_blank')">Download</button>
-      </div>
-    </div>
-
-    
   </div>
 
   <div class="footer">
@@ -393,13 +434,7 @@
         button.addEventListener('click', function() {
           const target = this.getAttribute('data-target');
           const modal = document.getElementById(target);
-          const buttonRect = this.getBoundingClientRect();
-          const containerRect = this.closest('.section').getBoundingClientRect();
-
           modal.classList.add('show');
-          modal.style.top = `${containerRect.bottom + window.scrollY}px`;
-          modal.style.left = `${containerRect.left + window.scrollX}px`;
-          modal.style.transform = 'translate(0, 0)';
         });
       });
 
@@ -418,9 +453,7 @@
           }
         });
       });
-    });
 
-    document.addEventListener('DOMContentLoaded', function() {
       const searchForm = document.getElementById('searchForm');
       const searchModal = document.getElementById('searchModal');
       const searchResultsContainer = document.getElementById('searchResults');
@@ -491,12 +524,7 @@
       const openContentWindow = function(title, link) {
         const modal = document.getElementById(link);
         const button = document.querySelector(`[data-target="${link}"]`);
-        const buttonRect = button.getBoundingClientRect();
-
         modal.classList.add('show');
-        modal.style.top = `${buttonRect.bottom + window.scrollY}px`;
-        modal.style.left = `${buttonRect.left + window.scrollX}px`;
-        modal.style.transform = `translate(-50%, 0)`;
         searchModal.classList.remove('show');
       };
 
